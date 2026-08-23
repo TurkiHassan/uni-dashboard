@@ -4,25 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E7C66">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>داشبورد الدراسة — تركي</title>
 <link rel="stylesheet" href="assets/thmanyah/thmanyah-fonts.css">
 <style>
   :root{
     --bg:#F7F4EE; --card:#FFFFFF; --ink:#211E19; --muted:#7A7466;
     --accent:#0E7C66; --gold:#B98A2F; --line:rgba(33,30,25,.08);
-    --shell:rgba(33,30,25,.04); --red:#C0392B;
+    --shell:rgba(33,30,25,.04); --red:#C0392B; --soft:rgba(14,124,102,.09);
     --ease:cubic-bezier(.32,.72,0,1);
+  }
+  body.dark{
+    --bg:#16150F; --card:#211F18; --ink:#F2EEE4; --muted:#A39C8B;
+    --line:rgba(242,238,228,.1); --shell:rgba(242,238,228,.05);
+    --soft:rgba(14,124,102,.22);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
     font-family:"thmanyah sans Regular",system-ui,sans-serif;background:var(--bg);color:var(--ink);
     min-height:100dvh;-webkit-font-smoothing:antialiased;line-height:1.6;
+    transition:background .6s var(--ease),color .6s var(--ease);
   }
-  /* subtle paper grain */
   body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.35;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .03 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
   .wrap{max-width:1080px;margin:0 auto;padding:clamp(24px,5vw,64px) clamp(16px,4vw,40px);position:relative;z-index:2}
+
+  /* dark toggle */
+  .toggle{position:fixed;top:18px;left:18px;z-index:90;display:flex;align-items:center;gap:8px;
+    background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+    cursor:pointer;font-family:inherit;font-size:.8rem;color:var(--ink);
+    box-shadow:0 8px 24px rgba(33,30,25,.08);transition:transform .4s var(--ease),background .5s var(--ease)}
+  .toggle:hover{transform:translateY(-2px)}
+  .toggle .ic{font-size:1rem;line-height:1}
 
   /* ===== header ===== */
   header{padding:clamp(20px,4vw,48px) 0 clamp(28px,5vw,56px)}
@@ -37,34 +56,31 @@
 
   /* ===== bento grid ===== */
   .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-  .b-4{grid-column:span 4}.b-6{grid-column:span 6}.b-8{grid-column:span 8}.b-12{grid-column:span 12}
-  @media(max-width:860px){.b-4,.b-6,.b-8,.b-12{grid-column:span 12}}
+  .b-4{grid-column:span 4}.b-5{grid-column:span 5}.b-6{grid-column:span 6}.b-7{grid-column:span 7}.b-8{grid-column:span 8}.b-12{grid-column:span 12}
+  @media(max-width:860px){.b-4,.b-5,.b-6,.b-7,.b-8,.b-12{grid-column:span 12}}
 
-  /* double-bezel card */
   .card{background:var(--shell);border:1px solid var(--line);border-radius:28px;padding:10px;
     opacity:0;transform:translateY(28px);filter:blur(6px);
-    transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
+    transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease),background .5s var(--ease),border-color .5s var(--ease)}
   .card.in{opacity:1;transform:none;filter:none}
   .card-inner{background:var(--card);border-radius:19px;padding:26px;height:100%;
-    box-shadow:inset 0 1px 1px rgba(255,255,255,.6);position:relative;overflow:hidden}
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.6);position:relative;overflow:hidden;
+    transition:background .5s var(--ease)}
   .card h2{font-family:"thmanyah serif display Bold",serif;font-size:1.15rem;margin-bottom:4px;display:flex;align-items:center;gap:10px}
   .card h2 svg{width:19px;height:19px;stroke-width:1.4;stroke:var(--accent);fill:none;flex-shrink:0}
   .card .cap{color:var(--muted);font-size:.82rem;margin-bottom:18px}
 
-  /* stat */
   .stat .n{font-family:"thmanyah serif display Black",serif;font-size:3rem;line-height:1;color:var(--ink)}
   .stat.hot .n{color:var(--accent)}
   .stat .l{color:var(--muted);font-size:.85rem;margin-top:6px}
 
-  /* course rows */
   .course{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 4px;border-bottom:1px dashed var(--line)}
   .course:last-child{border-bottom:none}
   .course .code{font-size:.68rem;color:var(--muted);direction:ltr;text-align:left;font-family:ui-monospace,monospace}
   .course .name{font-weight:600;margin-top:1px;font-size:.95rem}
   .course .dr{color:var(--gold);font-size:.8rem;margin-top:1px}
-  .badge{background:rgba(14,124,102,.09);color:var(--accent);border-radius:999px;padding:4px 13px;font-size:.72rem;white-space:nowrap}
+  .badge{background:var(--soft);color:var(--accent);border-radius:999px;padding:4px 13px;font-size:.72rem;white-space:nowrap}
 
-  /* tasks */
   .task{background:linear-gradient(0deg,var(--bg),var(--bg));border-radius:14px;padding:14px 16px;margin-bottom:10px;
     border-right:3px solid var(--gold)}
   .task.late{border-color:var(--red)}
@@ -73,27 +89,62 @@
   .empty{text-align:center;color:var(--muted);padding:34px 10px;font-size:.95rem}
   .empty .big{font-size:2rem;display:block;margin-bottom:8px}
 
+  /* countdown */
+  .cd{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:100%}
+  .cd .days{font-family:"thmanyah serif display Black",serif;font-size:clamp(3rem,6vw,4.4rem);line-height:1;color:var(--accent)}
+  .cd .lbl{color:var(--muted);font-size:.85rem;margin-top:8px}
+  .cd .for{color:var(--ink);font-weight:600;margin-top:12px;font-size:.95rem}
+  .cd .tick{display:flex;gap:10px;margin-top:16px}
+  .cd .tick div{background:var(--soft);border-radius:12px;padding:8px 12px;min-width:58px}
+  .cd .tick b{display:block;font-family:"thmanyah serif display Bold",serif;font-size:1.2rem;color:var(--accent)}
+  .cd .tick span{font-size:.68rem;color:var(--muted)}
+
+  /* semester ring */
+  .ring-wrap{display:flex;align-items:center;gap:20px;height:100%}
+  .ring{position:relative;width:120px;height:120px;flex-shrink:0}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .pct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:"thmanyah serif display Black",serif;font-size:1.7rem;color:var(--accent)}
+  .ring .pct small{font-family:"thmanyah sans Regular";font-size:.62rem;color:var(--muted)}
+  .ring-meta{flex:1}
+  .ring-meta .row{display:flex;justify-content:space-between;font-size:.85rem;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .ring-meta .row:last-child{border:none}
+  .ring-meta b{color:var(--ink)}
+
+  /* announcements */
+  .ann{padding:13px 4px;border-bottom:1px dashed var(--line);font-size:.9rem}
+  .ann:last-child{border:none}
+  .ann .t{font-weight:600}
+  .ann .m{color:var(--muted);font-size:.8rem;margin-top:2px}
+  .ann .d{color:var(--gold);font-size:.72rem;margin-top:1px}
+
   footer{text-align:center;color:var(--muted);font-size:.75rem;padding:56px 0 32px;position:relative;z-index:2}
   footer .sep{margin:0 8px;opacity:.5}
+  .install-pill{position:fixed;bottom:20px;right:50%;transform:translateX(50%);z-index:90;
+    background:var(--ink);color:var(--bg);border:none;border-radius:999px;padding:13px 22px;
+    font-family:inherit;font-size:.9rem;cursor:pointer;display:none;align-items:center;gap:8px;
+    box-shadow:0 12px 32px rgba(33,30,25,.25)}
 
   /* ===== gate ===== */
-  #gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:100;padding:20px}
+  #gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:100;padding:20px;transition:opacity .7s var(--ease)}
   #gate::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .03 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
   .gate-card{position:relative;background:var(--shell);border:1px solid var(--line);border-radius:36px;padding:11px;width:min(380px,94vw)}
   .gate-core{background:var(--card);border-radius:26px;padding:44px 34px;text-align:center;box-shadow:inset 0 1px 1px rgba(255,255,255,.6)}
-  .gate-core .lock{width:52px;height:52px;border-radius:50%;background:rgba(14,124,102,.09);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .gate-core .lock{width:52px;height:52px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
   .gate-core .lock svg{width:22px;height:22px;stroke:var(--accent);stroke-width:1.4;fill:none}
   .gate-core h1{font-size:1.45rem;margin-bottom:6px}
   .gate-core p{color:var(--muted);font-size:.86rem;margin-bottom:22px}
   input[type=password]{width:100%;padding:13px;border:1px solid var(--line);border-radius:999px;font-size:1rem;text-align:center;font-family:inherit;background:var(--bg);transition:border-color .5s var(--ease),box-shadow .5s var(--ease)}
-  input[type=password]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(14,124,102,.1)}
-  button{width:100%;margin-top:14px;padding:13px;background:var(--ink);color:#fff;border:none;border-radius:999px;font-size:.95rem;font-family:inherit;cursor:pointer;transition:transform .5s var(--ease),opacity .3s}
-  button:hover{opacity:.9}button:active{transform:scale(.97)}
+  input[type=password]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--soft)}
+  button.enter{width:100%;margin-top:14px;padding:13px;background:var(--ink);color:var(--bg);border:none;border-radius:999px;font-size:.95rem;font-family:inherit;cursor:pointer;transition:transform .5s var(--ease),opacity .3s}
+  button.enter:hover{opacity:.9}button.enter:active{transform:scale(.97)}
   .err{color:var(--red);font-size:.82rem;margin-top:12px;min-height:1.2em}
 </style>
 </head>
 <body>
+
+<button class="toggle" id="themeBtn" title="تبديل الوضع"><span class="ic" id="themeIc">🌙</span><span id="themeLbl">ليلي</span></button>
 
 <div id="gate">
   <div class="gate-card"><div class="gate-core">
@@ -101,7 +152,7 @@
     <h1>داشبورد الدراسة</h1>
     <p>صفحة خاصة — أدخل كلمة المرور للمتابعة</p>
     <input type="password" id="pw" placeholder="كلمة المرور" autofocus autocomplete="off">
-    <button onclick="tryOpen()">دخول</button>
+    <button class="enter" onclick="tryOpen()">دخول</button>
     <div class="err" id="err"></div>
   </div></div>
 </div>
@@ -125,6 +176,38 @@
       <div class="n" id="s-done">—</div><div class="l">مهام منجزة</div>
     </div></div>
 
+    <div class="card b-4"><div class="card-inner">
+      <h2><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> أقرب موعد</h2>
+      <p class="cap">عداد تنازلي حي</p>
+      <div class="cd" id="countdown"></div>
+    </div></div>
+
+    <div class="card b-4"><div class="card-inner">
+      <h2><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M12 7v5l3 2"/></svg> تقدم الفصل</h2>
+      <p class="cap">الأسابيع المتبقية</p>
+      <div class="ring-wrap">
+        <div class="ring">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" stroke-width="10"/>
+            <circle id="ringArc" cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
+              stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="transition:stroke-dashoffset 1.2s var(--ease)"/>
+          </svg>
+          <div class="pct"><span id="semPct">0%</span><small>اكتمل</small></div>
+        </div>
+        <div class="ring-meta">
+          <div class="row"><span>انتهى الفصل</span><b id="semEnd">—</b></div>
+          <div class="row"><span>الأسبوع الحالي</span><b id="semWeek">—</b></div>
+          <div class="row"><span>متبقٍ</span><b id="semLeft">—</b></div>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="card b-4"><div class="card-inner">
+      <h2><svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zm0 0a2 2 0 002 2h13"/></svg> الأسبوع الحالي</h2>
+      <p class="cap">محاضرات ومواعيد</p>
+      <div id="week"></div>
+    </div></div>
+
     <div class="card b-8"><div class="card-inner">
       <h2><svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zm0 0a2 2 0 002 2h13"/></svg> المقررات الدراسية الحالية</h2>
       <p class="cap">أربعة مقررات · كلية الحاسبات</p>
@@ -132,64 +215,118 @@
     </div></div>
 
     <div class="card b-4"><div class="card-inner">
-      <h2><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> الواجبات والمواعيد</h2>
-      <p class="cap">ضمن الـ ٧ أيام القادمة</p>
-      <div id="tasks"></div>
+      <h2><svg viewBox="0 0 24 24"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg> إعلانات الدكاترة</h2>
+      <p class="cap">آخر الإعلانات من Blackboard</p>
+      <div id="announce"></div>
     </div></div>
 
     <div class="card b-12"><div class="card-inner">
-      <h2><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> التقويم الأسبوعي</h2>
-      <p class="cap">محاضرات ومواعيد الأسبوع الحالي</p>
-      <div id="week" style="display:grid;gap:8px"></div>
+      <h2><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> الواجبات والمواعيد</h2>
+      <p class="cap">جميع الواجبات المستحقة</p>
+      <div id="tasks"></div>
     </div></div>
   </div>
 </div>
 
 <footer>تحديث تلقائي مرتين يومياً <span class="sep">·</span> المصدر: Blackboard Ultra — جامعة تبوك <span class="sep">·</span> صُنع بعناية 🦊</footer>
 
+<button class="install-pill" id="installBtn">📲 تثبيت التطبيق</button>
+
 <script src="data.js"></script>
 <script>
 const PASSWORD_HASH = "67baadfdc13d2ac3c06923836e8eb17ade2efda05bb0e9fe05a02e7d4acd6e02";
+const DATA = window.DATA || {};
+const $ = id => document.getElementById(id);
 
+/* ===== theme ===== */
+const savedTheme = localStorage.getItem('uni-theme');
+if (savedTheme === 'dark') document.body.classList.add('dark');
+function syncTheme(){ const d = document.body.classList.contains('dark');
+  $('themeIc').textContent = d ? '☀️' : '🌙'; $('themeLbl').textContent = d ? 'نهاري' : 'ليلي';
+  $('themeBtn').title = d ? 'تبديل للوضع النهاري' : 'تبديل للوضع الليلي'; }
+syncTheme();
+$('themeBtn').addEventListener('click', ()=>{ document.body.classList.toggle('dark');
+  localStorage.setItem('uni-theme', document.body.classList.contains('dark') ? 'dark' : 'light'); syncTheme(); });
+
+/* ===== auth ===== */
 async function sha256(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');}
 async function tryOpen(){
-  const h = await sha256(document.getElementById('pw').value);
+  const h = await sha256($('pw').value);
   if(h === PASSWORD_HASH){sessionStorage.setItem('ok','1');unlock();render();}
-  else document.getElementById('err').textContent = 'كلمة المرور غير صحيحة';
+  else $('err').textContent = 'كلمة المرور غير صحيحة';
 }
-document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryOpen();});
-function unlock(){const g=document.getElementById('gate');g.style.transition='opacity .7s cubic-bezier(.32,.72,0,1)';g.style.opacity='0';setTimeout(()=>g.remove(),700);document.getElementById('app').hidden=false;}
+$('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryOpen();});
+function unlock(){const g=$('gate');g.style.opacity='0';setTimeout(()=>g.remove(),700);$('app').hidden=false;}
 
+/* ===== render ===== */
 function render(){
-  document.getElementById('updated').textContent = DATA.updated || '—';
-  const upcoming = (DATA.tasks||[]).filter(t=>!t.done);
-  document.getElementById('s-courses').textContent = (DATA.courses||[]).length;
-  document.getElementById('s-tasks').textContent   = upcoming.length;
-  document.getElementById('s-done').textContent    = (DATA.tasks||[]).filter(t=>t.done).length;
+  $('updated').textContent = DATA.updated || '—';
+  const courses = DATA.courses||[], tasks = DATA.tasks||[], anns = DATA.announcements||[];
+  const upcoming = tasks.filter(t=>!t.done);
+  $('s-courses').textContent = courses.length;
+  $('s-tasks').textContent = upcoming.length;
+  $('s-done').textContent = tasks.filter(t=>t.done).length;
 
-  document.getElementById('courses').innerHTML = (DATA.courses||[]).map(c=>`
+  $('courses').innerHTML = courses.map(c=>`
     <div class="course"><div><div class="code">${c.code}</div><div class="name">${c.name}</div><div class="dr">${c.instructor}</div></div>
-    <span class="badge">${c.status||'مفتوح'}</span></div>`).join('');
+    <span class="badge">${c.status||'مفتوح'}</span></div>`).join('') || '<div class="empty">لا توجد مقررات بعد</div>';
 
-  const tEl=document.getElementById('tasks');
-  tEl.innerHTML = upcoming.length ? upcoming.map(t=>`
-    <div class="task ${t.late?'late':''}"><strong>${t.title}</strong><div class="meta">${t.course||''}${t.due?' · '+t.due:''}</div></div>`).join('')
-    : '<div class="empty"><span class="big">🌤️</span>لا توجد واجبات مستحقة حالياً<br>بداية فصل هادئة!</div>';
+  /* countdown */
+  const cd = $('countdown');
+  const next = upcoming.slice().sort((a,b)=>new Date(a.dateISO||0)-new Date(b.dateISO||0))[0];
+  if(next && next.dateISO){
+    const t = new Date(next.dateISO).getTime();
+    cd.innerHTML = `<div class="days" id="cdDays">—</div><div class="lbl">يوم متبقٍ</div>
+      <div class="for">${next.title}</div><div class="tick">
+      <div><b id="cdH">—</b><span>ساعة</span></div><div><b id="cdM">—</b><span>دقيقة</span></div><div><b id="cdS">—</b><span>ثانية</span></div></div>`;
+    function tick(){ const d=Math.max(0,t-Date.now());
+      const days=Math.floor(d/864e5), h=Math.floor(d%864e5/36e5), m=Math.floor(d%36e5/6e4), s=Math.floor(d%6e4/1e3);
+      $('cdDays').textContent=days; $('cdH').textContent=h; $('cdM').textContent=m; $('cdS').textContent=s; }
+    tick(); setInterval(tick,1000);
+  } else cd.innerHTML = '<div class="empty"><span class="big">🌤️</span>لا توجد مواعيد قادمة<br>استمتع بالهدوء!</div>';
 
-  const week=(DATA.week||[]);
-  document.getElementById('week').innerHTML = week.length ? week.map(d=>`
-    <div style="display:flex;justify-content:space-between;padding:10px 14px;border-radius:12px;background:var(--bg);font-size:.88rem">
+  /* semester ring */
+  const sem = DATA.semester||{};
+  if(sem.start && sem.end){
+    const st=new Date(sem.start).getTime(), en=new Date(sem.end).getTime(), now=Date.now();
+    const total=en-st, gone=Math.max(0,Math.min(1,(now-st)/total));
+    const pct=Math.round(gone*100);
+    const weeksTotal=Math.ceil(total/6048e5);
+    const weekNow=Math.min(weeksTotal,Math.max(1,Math.floor((now-st)/6048e5)+1));
+    const leftWeeks=Math.max(0,Math.ceil((en-now)/6048e5));
+    $('ringArc').style.strokeDashoffset = 326.7*(1-gone);
+    $('semPct').textContent = pct+'%';
+    $('semEnd').textContent = sem.endLabel || new Date(sem.end).toLocaleDateString('ar-SA');
+    $('semWeek').textContent = weekNow + ' / ' + weeksTotal;
+    $('semLeft').textContent = leftWeeks + ' أسبوع';
+  } else { $('semPct').textContent='—'; $('semEnd').textContent='—'; $('semWeek').textContent='—'; $('semLeft').textContent='—'; }
+
+  $('week').innerHTML = (DATA.week||[]).length ? (DATA.week||[]).map(d=>`
+    <div style="display:flex;justify-content:space-between;padding:10px 14px;border-radius:12px;background:var(--bg);font-size:.88rem;margin-bottom:6px">
       <span style="font-weight:600">${d.day}</span><span style="color:var(--muted)">${d.items||'لا محاضرات'}</span></div>`).join('')
     : '<div class="empty">لم تُضف مواعيد المحاضرات بعد</div>';
+
+  $('announce').innerHTML = anns.length ? anns.map(a=>`
+    <div class="ann"><div class="t">${a.title}</div><div class="m">${a.course||''}</div><div class="d">${a.date||''}</div></div>`).join('')
+    : '<div class="empty">لا توجد إعلانات جديدة</div>';
+
+  const tEl=$('tasks');
+  tEl.innerHTML = tasks.length ? tasks.map(t=>`
+    <div class="task ${t.late?'late':''}"><strong>${t.title}</strong><div class="meta">${t.course||''}${t.due?' · '+t.due:''}</div></div>`).join('')
+    : '<div class="empty"><span class="big">🌤️</span>لا توجد واجبات مستحقة حالياً<br>بداية فصل هادئة!</div>';
 }
 
-/* staggered scroll reveal */
-function reveal(){
-  document.querySelectorAll('.card').forEach((el,i)=>{
-    setTimeout(()=>el.classList.add('in'), 120*i+80);
-  });
-}
+/* ===== reveal ===== */
+function reveal(){ document.querySelectorAll('.card').forEach((el,i)=>{ setTimeout(()=>el.classList.add('in'), 120*i+80); }); }
+
 if(sessionStorage.getItem('ok')){unlock();render();reveal();}
+
+/* ===== PWA install ===== */
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); deferredPrompt=e; $('installBtn').style.display='flex'; });
+$('installBtn').addEventListener('click', async ()=>{ if(!deferredPrompt) return;
+  deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; $('installBtn').style.display='none'; });
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(()=>{}); }
 </script>
 </body>
 </html>
