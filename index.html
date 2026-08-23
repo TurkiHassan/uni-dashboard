@@ -274,7 +274,7 @@ async function tryOpen(){
   else $('err').textContent = 'كلمة المرور غير صحيحة';
 }
 $('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryOpen();});
-function unlock(){const g=$('gate');g.style.opacity='0';setTimeout(()=>g.remove(),700);$('app').hidden=false;}
+function unlock(){const g=$('gate');g.style.opacity='0';setTimeout(()=>g.remove(),700);$('app').hidden=false;reveal();}
 
 /* ===== render ===== */
 function render(){
