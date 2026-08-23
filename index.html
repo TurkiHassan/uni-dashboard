@@ -252,7 +252,7 @@ $('themeBtn').addEventListener('click', ()=>{ document.body.classList.toggle('da
 async function sha256(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');}
 async function tryOpen(){
   const h = await sha256($('pw').value);
-  if(h === PASSWORD_HASH){sessionStorage.setItem('ok','1');unlock();render();}
+  if(h === PASSWORD_HASH){sessionStorage.setItem('ok','1');unlock();render();reveal();}
   else $('err').textContent = 'كلمة المرور غير صحيحة';
 }
 $('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryOpen();});
