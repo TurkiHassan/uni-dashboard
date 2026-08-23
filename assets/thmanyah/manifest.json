@@ -1,0 +1,370 @@
+[
+  {
+    "family": "thmanyah sans Regular",
+    "url": "https://framerusercontent.com/assets/x6EBzvXf1Fi35XhsRoHxePDVo.woff2",
+    "file": "x6EBzvXf1Fi35XhsRoHxePDVo.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-sans-Regular-400.woff2"
+  },
+  {
+    "family": "thmanyah serif display Black",
+    "url": "https://framerusercontent.com/assets/a9r2dKNoQcqFiTkwxTUnXgAfjws.woff2",
+    "file": "a9r2dKNoQcqFiTkwxTUnXgAfjws.woff2",
+    "weight": "900",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-display-Black-900.woff2"
+  },
+  {
+    "family": "thmanyah sans Light",
+    "url": "https://framerusercontent.com/assets/Lh8puxCFq405qBv7dKpg9NsHZNk.woff2",
+    "file": "Lh8puxCFq405qBv7dKpg9NsHZNk.woff2",
+    "weight": "300",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-sans-Light-300.woff2"
+  },
+  {
+    "family": "thmanyah sans Medium",
+    "url": "https://framerusercontent.com/assets/oE98mOPE28KTzUeptOLRIaqW1I.woff2",
+    "file": "oE98mOPE28KTzUeptOLRIaqW1I.woff2",
+    "weight": "500",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-sans-Medium-500.woff2"
+  },
+  {
+    "family": "Thmanyah sans 1.2 Bold",
+    "url": "https://framerusercontent.com/assets/JUv6rms2ye2kYL3UI3O9YyExQcQ.woff2",
+    "file": "JUv6rms2ye2kYL3UI3O9YyExQcQ.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-sans-1.2-Bold-700.woff2"
+  },
+  {
+    "family": "Thmanyah serif display 1.2 Regular",
+    "url": "https://framerusercontent.com/assets/gUSrlMNsoOIspcnYhQl24uNZZo.woff2",
+    "file": "gUSrlMNsoOIspcnYhQl24uNZZo.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-serif-display-1.2-Regular-400.woff2"
+  },
+  {
+    "family": "thmanyah serif display Bold",
+    "url": "https://framerusercontent.com/assets/AAY5hsAWwWmVC7qlScZUGjzCgE8.woff2",
+    "file": "AAY5hsAWwWmVC7qlScZUGjzCgE8.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-display-Bold-700.woff2"
+  },
+  {
+    "family": "thmanyah sans Bold",
+    "url": "https://framerusercontent.com/assets/LZvgFRUsP7pGWYj3tKxMUrKuhSY.woff2",
+    "file": "LZvgFRUsP7pGWYj3tKxMUrKuhSY.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-sans-Bold-700.woff2"
+  },
+  {
+    "family": "thmanyah serif display Light",
+    "url": "https://framerusercontent.com/assets/zmxf3YlIwMxBTz61cviQtq5n3zU.woff2",
+    "file": "zmxf3YlIwMxBTz61cviQtq5n3zU.woff2",
+    "weight": "300",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-display-Light-300.woff2"
+  },
+  {
+    "family": "Thmanyah sans 1.2 Light",
+    "url": "https://framerusercontent.com/assets/2MgF2LENj0ar3gdEjyf3HoLd6iw.woff2",
+    "file": "2MgF2LENj0ar3gdEjyf3HoLd6iw.woff2",
+    "weight": "300",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-sans-1.2-Light-300.woff2"
+  },
+  {
+    "family": "thmanyah serif display Regular",
+    "url": "https://framerusercontent.com/assets/s1q2LvVNWBbqzMxMBxsexY73tE.woff2",
+    "file": "s1q2LvVNWBbqzMxMBxsexY73tE.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-display-Regular-400.woff2"
+  },
+  {
+    "family": "thmanyah serif text Black",
+    "url": "https://framerusercontent.com/assets/z8brS6Wjld2pvgVBkmzMQpyPO4.woff2",
+    "file": "z8brS6Wjld2pvgVBkmzMQpyPO4.woff2",
+    "weight": "900",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-text-Black-900.woff2"
+  },
+  {
+    "family": "thmanyah sans Black",
+    "url": "https://framerusercontent.com/assets/ulQLGTktcl2Qq4AmD6RuVgELZKg.woff2",
+    "file": "ulQLGTktcl2Qq4AmD6RuVgELZKg.woff2",
+    "weight": "900",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-sans-Black-900.woff2"
+  },
+  {
+    "family": "thmanyah serif text Regular",
+    "url": "https://framerusercontent.com/assets/3WPjrTAizPcMoDaKDtKdNB0Jo50.woff2",
+    "file": "3WPjrTAizPcMoDaKDtKdNB0Jo50.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-text-Regular-400.woff2"
+  },
+  {
+    "family": "thmanyah serif text Light",
+    "url": "https://framerusercontent.com/assets/pXAhTrUNoEDB4CTUcjXvXy1gFAc.woff2",
+    "file": "pXAhTrUNoEDB4CTUcjXvXy1gFAc.woff2",
+    "weight": "300",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-text-Light-300.woff2"
+  },
+  {
+    "family": "thmanyah serif display Medium",
+    "url": "https://framerusercontent.com/assets/ahIxG21c1088n0jA0bPQBjKu6M.woff2",
+    "file": "ahIxG21c1088n0jA0bPQBjKu6M.woff2",
+    "weight": "500",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-display-Medium-500.woff2"
+  },
+  {
+    "family": "thmanyah serif text Medium",
+    "url": "https://framerusercontent.com/assets/bsVNF5mKouPfUJiPWsBKDU324NM.woff2",
+    "file": "bsVNF5mKouPfUJiPWsBKDU324NM.woff2",
+    "weight": "500",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-text-Medium-500.woff2"
+  },
+  {
+    "family": "thmanyah serif text Bold",
+    "url": "https://framerusercontent.com/assets/L62MixAFhJojtLTRD19wOsCnFg.woff2",
+    "file": "L62MixAFhJojtLTRD19wOsCnFg.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/thmanyah-serif-text-Bold-700.woff2"
+  },
+  {
+    "family": "Thmanyah sans 1.2 Regular",
+    "url": "https://framerusercontent.com/assets/Ej0k3h4Mi5O7TSo2w2JaDCPRgvo.woff2",
+    "file": "Ej0k3h4Mi5O7TSo2w2JaDCPRgvo.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-sans-1.2-Regular-400.woff2"
+  },
+  {
+    "family": "Thmanyah serif text 1.2 Light",
+    "url": "https://framerusercontent.com/assets/3oNNmhaqdwdOlTnrXg8UrU8.woff2",
+    "file": "3oNNmhaqdwdOlTnrXg8UrU8.woff2",
+    "weight": "300",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-serif-text-1.2-Light-300.woff2"
+  },
+  {
+    "family": "Thmanyah serif text 1.2 Regular",
+    "url": "https://framerusercontent.com/assets/pTIPpIhdyoUL1Tl7cDpv1Ze80uQ.woff2",
+    "file": "pTIPpIhdyoUL1Tl7cDpv1Ze80uQ.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-serif-text-1.2-Regular-400.woff2"
+  },
+  {
+    "family": "Thmanyah serif text 1.2 Medium",
+    "url": "https://framerusercontent.com/assets/oVoRwZKk5rDtzCpYG0Ol1gigl5s.woff2",
+    "file": "oVoRwZKk5rDtzCpYG0Ol1gigl5s.woff2",
+    "weight": "500",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-serif-text-1.2-Medium-500.woff2"
+  },
+  {
+    "family": "Thmanyah serif text 1.2 Bold",
+    "url": "https://framerusercontent.com/assets/kzVXDC4kJxZgS0rOVcbdPBBC5sw.woff2",
+    "file": "kzVXDC4kJxZgS0rOVcbdPBBC5sw.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-serif-text-1.2-Bold-700.woff2"
+  },
+  {
+    "family": "Thmanyah serif text 1.2 Black",
+    "url": "https://framerusercontent.com/assets/e1GJ2wtz2b2fMo8i7AbRPck4Qo.woff2",
+    "file": "e1GJ2wtz2b2fMo8i7AbRPck4Qo.woff2",
+    "weight": "900",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-serif-text-1.2-Black-900.woff2"
+  },
+  {
+    "family": "Thmanyah sans 1.2 Medium",
+    "url": "https://framerusercontent.com/assets/3XGelYpTgxSxBXN4Oieg9Dt3bc.woff2",
+    "file": "3XGelYpTgxSxBXN4Oieg9Dt3bc.woff2",
+    "weight": "500",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Thmanyah-sans-1.2-Medium-500.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/5vvr9Vy74if2I6bQbJvbw7SY1pQ.woff2",
+    "file": "5vvr9Vy74if2I6bQbJvbw7SY1pQ.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-400.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/EOr0mi4hNtlgWNn9if640EZzXCo.woff2",
+    "file": "EOr0mi4hNtlgWNn9if640EZzXCo.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-400.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/Y9k9QrlZAqio88Klkmbd8VoMQc.woff2",
+    "file": "Y9k9QrlZAqio88Klkmbd8VoMQc.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-400.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/OYrD2tBIBPvoJXiIHnLoOXnY9M.woff2",
+    "file": "OYrD2tBIBPvoJXiIHnLoOXnY9M.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-400.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/JeYwfuaPfZHQhEG8U5gtPDZ7WQ.woff2",
+    "file": "JeYwfuaPfZHQhEG8U5gtPDZ7WQ.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-400.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/GrgcKwrN6d3Uz8EwcLHZxwEfC4.woff2",
+    "file": "GrgcKwrN6d3Uz8EwcLHZxwEfC4.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-400.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/b6Y37FthZeALduNqHicBT6FutY.woff2",
+    "file": "b6Y37FthZeALduNqHicBT6FutY.woff2",
+    "weight": "400",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-400.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/hyOgCu0Xnghbimh0pE8QTvtt2AU.woff2",
+    "file": "hyOgCu0Xnghbimh0pE8QTvtt2AU.woff2",
+    "weight": "600",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-600.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/NeGmSOXrPBfEFIy5YZeHq17LEDA.woff2",
+    "file": "NeGmSOXrPBfEFIy5YZeHq17LEDA.woff2",
+    "weight": "600",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-600.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/oYaAX5himiTPYuN8vLWnqBbfD2s.woff2",
+    "file": "oYaAX5himiTPYuN8vLWnqBbfD2s.woff2",
+    "weight": "600",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-600.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/lEJLP4R0yuCaMCjSXYHtJw72M.woff2",
+    "file": "lEJLP4R0yuCaMCjSXYHtJw72M.woff2",
+    "weight": "600",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-600.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/cRJyLNuTJR5jbyKzGi33wU9cqIQ.woff2",
+    "file": "cRJyLNuTJR5jbyKzGi33wU9cqIQ.woff2",
+    "weight": "600",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-600.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/yDtI2UI8XcEg1W2je9XPN3Noo.woff2",
+    "file": "yDtI2UI8XcEg1W2je9XPN3Noo.woff2",
+    "weight": "600",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-600.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/A0Wcc7NgXMjUuFdquHDrIZpzZw0.woff2",
+    "file": "A0Wcc7NgXMjUuFdquHDrIZpzZw0.woff2",
+    "weight": "600",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-600.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/DpPBYI0sL4fYLgAkX8KXOPVt7c.woff2",
+    "file": "DpPBYI0sL4fYLgAkX8KXOPVt7c.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-700.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/4RAEQdEOrcnDkhHiiCbJOw92Lk.woff2",
+    "file": "4RAEQdEOrcnDkhHiiCbJOw92Lk.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-700.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/1K3W8DizY3v4emK8Mb08YHxTbs.woff2",
+    "file": "1K3W8DizY3v4emK8Mb08YHxTbs.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-700.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/tUSCtfYVM1I1IchuyCwz9gDdQ.woff2",
+    "file": "tUSCtfYVM1I1IchuyCwz9gDdQ.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-700.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/VgYFWiwsAC5OYxAycRXXvhze58.woff2",
+    "file": "VgYFWiwsAC5OYxAycRXXvhze58.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-700.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/syRNPWzAMIrcJ3wIlPIP43KjQs.woff2",
+    "file": "syRNPWzAMIrcJ3wIlPIP43KjQs.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-700.woff2"
+  },
+  {
+    "family": "Inter",
+    "url": "https://framerusercontent.com/assets/GIryZETIX4IFypco5pYZONKhJIo.woff2",
+    "file": "GIryZETIX4IFypco5pYZONKhJIo.woff2",
+    "weight": "700",
+    "style": "normal",
+    "local": "assets/fonts/thmanyah/named/Inter-700.woff2"
+  }
+]
