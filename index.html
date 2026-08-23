@@ -53,6 +53,22 @@
   h1 em{font-style:normal;color:var(--accent)}
   .sub{color:var(--muted);margin-top:14px;font-size:clamp(.9rem,2vw,1rem);max-width:52ch}
   .sub b{color:var(--ink);font-weight:600}
+  .sync-line{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:12px;color:var(--muted);font-size:.78rem}
+  .sync-state{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;background:var(--shell)}
+  .sync-state::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .sync-state.warn::before{background:var(--gold)}.sync-state.error::before{background:var(--red)}
+  .next-strip{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;margin-bottom:18px}
+  .next-main,.next-side{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px 22px;box-shadow:0 10px 30px rgba(33,30,25,.04)}
+  .next-main{border-right:4px solid var(--accent)}.next-kicker{color:var(--accent);font-size:.76rem;font-weight:700;margin-bottom:6px}.next-title{font-size:1.15rem;font-weight:700}.next-meta{color:var(--muted);font-size:.82rem;margin-top:4px}.next-side strong{display:block;font-family:"thmanyah serif display Black",serif;font-size:1.65rem;color:var(--accent)}
+  .section-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}.section-tools input,.section-tools select{font:inherit;font-size:.8rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px}.section-tools input{min-width:190px}.filter-count{color:var(--muted);font-size:.76rem;margin-inline-start:auto}
+  .course-actions{display:flex;align-items:center;gap:8px}.course-btn,.check-btn{font:inherit;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:6px 9px;cursor:pointer}.course-btn:hover,.check-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .course-detail{display:none;background:var(--bg);border-radius:10px;padding:10px;margin-top:8px;color:var(--muted);font-size:.8rem}.course-detail.open{display:block}.course-detail b{color:var(--ink)}
+  .task-row{display:flex;align-items:flex-start;gap:10px}.task-row input{margin-top:4px;accent-color:var(--accent);width:17px;height:17px}.task.is-done{opacity:.55}.task.is-done strong{text-decoration:line-through}.task .meta .due-chip{color:var(--accent);font-weight:600}
+  .plan-item{display:flex;align-items:flex-start;gap:10px;background:var(--bg);border-radius:12px;padding:10px 14px;margin-bottom:6px;font-size:.88rem}.plan-item input{margin-top:4px;accent-color:var(--accent);width:17px;height:17px}.plan-item.done{opacity:.55}.plan-item.done span{text-decoration:line-through}.plan-progress{color:var(--muted);font-size:.76rem;margin:-8px 0 12px}.week-row{display:flex;justify-content:space-between;padding:10px 14px;border-radius:12px;background:var(--bg);font-size:.88rem;margin-bottom:6px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--soft);outline-offset:2px}
+  @media(max-width:650px){.next-strip{grid-template-columns:1fr;gap:10px}.next-main,.next-side{padding:16px}.filter-count{margin-inline-start:0;width:100%}.section-tools input{min-width:0;flex:1}.course{align-items:flex-start}.course-actions{flex-direction:column;align-items:stretch}.card-inner{padding:20px}.toggle{top:10px;left:10px}.wrap{padding-top:62px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
   /* ===== bento grid ===== */
   .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
@@ -175,7 +191,13 @@
     <h1>لوحة متابعة <em>دراستك</em></h1>
     <p class="sub">كل مقرراتك وواجباتك في مكان واحد، محدّثة تلقائياً من Blackboard.
       آخر تحديث: <b id="updated">—</b></p>
+    <div class="sync-line"><span class="sync-state" id="syncState">جاري التحقق من حالة المزامنة</span><span id="syncDetail">—</span></div>
   </header>
+
+  <section class="next-strip" aria-label="القادم الآن">
+    <div class="next-main"><div class="next-kicker">القادم الآن</div><div class="next-title" id="nextTitle">جاري تحميل أقرب مهمة</div><div class="next-meta" id="nextMeta">—</div></div>
+    <div class="next-side"><div class="next-kicker">الإنجاز الأسبوعي</div><strong id="weekProgress">0%</strong><div class="next-meta" id="weekProgressText">لم تبدأ مهام الأسبوع بعد</div></div>
+  </section>
 
   <div class="bento">
     <div class="card b-4"><div class="card-inner stat hot">
@@ -223,7 +245,7 @@
     <div class="card b-8"><div class="card-inner">
       <h2><svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zm0 0a2 2 0 002 2h13"/></svg> المقررات الدراسية الحالية</h2>
       <p class="cap">أربعة مقررات · كلية الحاسبات</p>
-      <div id="courses"></div>
+      <div class="section-tools"><label class="sr-only" for="courseSearch">بحث في المقررات</label><input id="courseSearch" type="search" placeholder="ابحث عن مقرر أو مدرس"><span class="filter-count" id="courseCount"></span></div><div id="courses"></div>
     </div></div>
 
     <div class="card b-4"><div class="card-inner">
@@ -247,7 +269,7 @@
     <div class="card b-12"><div class="card-inner">
       <h2><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> الواجبات والمواعيد</h2>
       <p class="cap">جميع الواجبات المستحقة</p>
-      <div id="tasks"></div>
+      <div class="section-tools"><label class="sr-only" for="taskFilter">تصفية الواجبات</label><select id="taskFilter"><option value="all">كل الواجبات</option><option value="open">غير المنجزة</option><option value="done">المنجزة</option><option value="late">المتأخرة</option></select><span class="filter-count" id="taskCount"></span></div><div id="tasks"></div>
     </div></div>
   </div>
 </div>
@@ -276,7 +298,7 @@ $('themeBtn').addEventListener('click', ()=>{ document.body.classList.toggle('da
 async function sha256(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');}
 async function tryOpen(){
   const h = await sha256($('pw').value);
-  if(h === PASSWORD_HASH){sessionStorage.setItem('ok','1');unlock();render();reveal();}
+  if(h === PASSWORD_HASH){sessionStorage.setItem('ok','1');unlock();renderV2();reveal();}
   else $('err').textContent = 'كلمة المرور غير صحيحة';
 }
 $('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryOpen();});
@@ -365,10 +387,22 @@ function render(){
     : '<div class="empty"><span class="big">🌤️</span>لا توجد واجبات مستحقة حالياً<br>بداية فصل هادئة!</div>';
 }
 
+/* ===== improved data layer ===== */
+let countdownTimerV2=null;
+const escV2=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const dateV2=v=>v?new Date(v).toLocaleDateString('ar-SA',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'موعد غير محدد';
+const keyV2=k=>`uni-dashboard-${k}`;
+function syncV2(){const s=DATA.sync||{},stamp=s.timestamp||s.updatedISO||DATA.updatedISO,age=stamp?(Date.now()-new Date(stamp).getTime())/36e5:Infinity,el=$('syncState');$('updated').textContent=DATA.updated||s.updated||'غير معروف';el.className='sync-state';if(s.status==='error'){el.classList.add('error');el.textContent='فشلت آخر مزامنة'}else if(age>30||!stamp){el.classList.add('warn');el.textContent='تحقق من حداثة البيانات'}else el.textContent='المزامنة تعمل';$('syncDetail').textContent=s.message||(stamp?`آخر تحقق منذ ${Math.max(0,Math.round(age))} ساعة`:'لا يوجد سجل مزامنة بعد')}
+function coursesV2(){const all=DATA.courses||[],q=($('courseSearch').value||'').trim().toLowerCase(),rows=all.filter(c=>!q||[c.name,c.code,c.instructor].some(v=>String(v||'').toLowerCase().includes(q)));$('courseCount').textContent=`${rows.length} من ${all.length}`;$('courses').innerHTML=rows.length?rows.map((c,i)=>`<div class="course"><div><div class="code">${escV2(c.code)}</div><div class="name">${escV2(c.name)}</div><div class="dr">${escV2(c.instructor)}</div><div class="course-detail" id="course-detail-${i}"><b>تفاصيل المقرر</b><br>الحالة: ${escV2(c.status||'مفتوح')}<br>الرمز: <span dir="ltr">${escV2(c.code||'—')}</span></div></div><div class="course-actions"><span class="badge">${escV2(c.status||'مفتوح')}</span><button class="course-btn" type="button" aria-expanded="false" data-course-detail="${i}">التفاصيل</button></div></div>`).join(''):'<div class="empty">لا توجد مقررات مطابقة للبحث</div>';$('courses').querySelectorAll('[data-course-detail]').forEach(b=>b.onclick=()=>{const e=$(`course-detail-${b.dataset.courseDetail}`),open=e.classList.toggle('open');b.setAttribute('aria-expanded',open);b.textContent=open?'إخفاء':'التفاصيل'})}
+function tasksV2(){const all=DATA.tasks||[],mode=$('taskFilter').value,rows=all.filter(t=>mode==='all'||(mode==='done'&&t.done)||(mode==='open'&&!t.done)||(mode==='late'&&t.late));$('taskCount').textContent=`${rows.length} مهمة`;$('tasks').innerHTML=rows.length?rows.map((t,i)=>`<div class="task ${t.late?'late':''} ${t.done?'is-done':''}"><div class="task-row"><input type="checkbox" aria-label="تحديد إنجاز ${escV2(t.title)}" data-task-check="${i}" ${t.done?'checked':''}><div><strong>${escV2(t.title)}</strong><div class="meta">${escV2(t.course||'')}${t.due?` · <span class="due-chip">${escV2(t.due)}</span>`:''}</div></div></div></div>`).join(''):'<div class="empty">لا توجد مهام في هذا التصنيف</div>';$('tasks').querySelectorAll('[data-task-check]').forEach(b=>b.onchange=()=>{const original=all[Number(b.dataset.taskCheck)];if(original){original.done=b.checked;renderV2()}})}
+function planV2(){const plan=DATA.studyPlan||[],done=JSON.parse(localStorage.getItem(keyV2('plan'))||'{}'),total=plan.reduce((n,d)=>n+(d.items||[]).length,0),complete=Object.values(done).filter(Boolean).length;$('weekProgress').textContent=total?`${Math.round(complete/total*100)}%`:'—';$('weekProgressText').textContent=total?`${complete} من ${total} جلسات مكتملة`:'لا توجد جلسات هذا الأسبوع';const today=new Date().toLocaleDateString('ar-SA',{weekday:'long'});$('plan').innerHTML=plan.length?`<div class="plan-progress">يُحفظ إنجازك على هذا الجهاز فقط</div>`+plan.map((d,di)=>`<div style="margin-bottom:14px"><div style="font-weight:700;font-size:.85rem;color:${d.day===today?'var(--accent)':'var(--muted)'};margin-bottom:5px">${escV2(d.day)}${d.day===today?' ← اليوم':''}</div>${(d.items||[]).map((it,ii)=>{const k=`${di}-${ii}`,ok=!!done[k];return `<label class="plan-item ${ok?'done':''}"><input type="checkbox" data-plan-check="${k}" ${ok?'checked':''}><span><b>${escV2(it.course)}</b> — ${escV2(it.task)}</span><span style="color:var(--gold);white-space:nowrap">${escV2(it.min)} د</span></label>`}).join('')}</div>`).join(''):'<div class="empty">لا توجد خطة بعد</div>';$('plan').querySelectorAll('[data-plan-check]').forEach(b=>b.onchange=()=>{done[b.dataset.planCheck]=b.checked;localStorage.setItem(keyV2('plan'),JSON.stringify(done));planV2()})}
+function renderV2(){const courses=DATA.courses||[],tasks=DATA.tasks||[],anns=DATA.announcements||[],open=tasks.filter(t=>!t.done).sort((a,b)=>new Date(a.dateISO||'9999')-new Date(b.dateISO||'9999'));syncV2();$('s-courses').textContent=courses.length;$('s-tasks').textContent=open.length;$('s-done').textContent=tasks.filter(t=>t.done).length;coursesV2();tasksV2();planV2();const next=open[0],ev=(DATA.events||[]).filter(e=>new Date(e.date)>=new Date()).sort((a,b)=>new Date(a.date)-new Date(b.date))[0],item=next||ev;$('nextTitle').textContent=item?escV2(item.title):'لا توجد مواعيد قادمة';$('nextMeta').textContent=item?(item.course?`${escV2(item.course)} · `:'')+dateV2(item.dateISO||item.date):'ستظهر هنا أقرب مهمة أو حدث بعد المزامنة';const cd=$('countdown');if(countdownTimerV2)clearInterval(countdownTimerV2);if(next&&next.dateISO){const target=new Date(next.dateISO).getTime();cd.innerHTML=`<div class="days" id="cdDays">—</div><div class="lbl">يوم متبقٍ</div><div class="for">${escV2(next.title)}</div><div class="tick"><div><b id="cdH">—</b><span>ساعة</span></div><div><b id="cdM">—</b><span>دقيقة</span></div><div><b id="cdS">—</b><span>ثانية</span></div></div>`;const tick=()=>{const d=Math.max(0,target-Date.now());$('cdDays').textContent=Math.floor(d/864e5);$('cdH').textContent=Math.floor(d%864e5/36e5);$('cdM').textContent=Math.floor(d%36e5/6e4);$('cdS').textContent=Math.floor(d%6e4/1e3)};tick();countdownTimerV2=setInterval(tick,1000)}else cd.innerHTML='<div class="empty">لا توجد مواعيد قادمة<br>ستتحدث اللوحة عند وصول بيانات جديدة</div>';const sem=DATA.semester||{};if(sem.start&&sem.end){const st=new Date(sem.start).getTime(),en=new Date(sem.end).getTime(),now=Date.now(),total=en-st,gone=Math.max(0,Math.min(1,(now-st)/total)),weeks=Math.ceil(total/6048e5);$('ringArc').style.strokeDashoffset=326.7*(1-gone);$('semPct').textContent=Math.round(gone*100)+'%';$('semEnd').textContent=sem.endLabel||new Date(sem.end).toLocaleDateString('ar-SA');$('semWeek').textContent=Math.min(weeks,Math.max(1,Math.floor((now-st)/6048e5)+1))+' / '+weeks;$('semLeft').textContent=Math.max(0,Math.ceil((en-now)/6048e5))+' أسابيع'}$('week').innerHTML=(DATA.week||[]).length?(DATA.week||[]).map(d=>`<div class="week-row"><span style="font-weight:600">${escV2(d.day)}</span><span style="color:var(--muted)">${escV2(d.items||'لا محاضرات')}</span></div>`).join(''):'<div class="empty">لم تُضف مواعيد المحاضرات بعد</div>';$('announce').innerHTML=anns.length?anns.map(a=>`<div class="ann"><div class="t">${escV2(a.title)}</div><div class="m">${escV2(a.course||'')}</div><div class="d">${escV2(a.date||'')}</div></div>`).join(''):'<div class="empty">لا توجد إعلانات جديدة أو لم تتم مزامنتها بعد</div>';const evs=(DATA.events||[]).slice().sort((a,b)=>new Date(a.date)-new Date(b.date)),nowT=Date.now(),icons={study:'📘',deadline:'⏰',holiday:'🎉',exam:'📝'};$('events').innerHTML=evs.length?evs.map(e=>{const dt=new Date(e.date),past=dt.getTime()<nowT-864e5,near=!past&&dt.getTime()-nowT<14*864e5;return `<div class="ev ${past?'past':''} ${near?'near':''}"><div class="ev-ico">${icons[e.type]||'•'}</div><div class="ev-body"><div class="ev-t">${escV2(e.title)}</div><div class="ev-d">${dateV2(e.date)}</div></div><span class="ev-badge">${past?'انتهى':near?'قريباً':'قادم'}</span></div>`}).join(''):'<div class="empty">لا توجد أحداث مجدولة أو لم تتم مزامنتها بعد</div>'}
+$('courseSearch').addEventListener('input',coursesV2);$('taskFilter').addEventListener('change',tasksV2);
+
 /* ===== reveal ===== */
 function reveal(){ document.querySelectorAll('.card').forEach((el,i)=>{ setTimeout(()=>el.classList.add('in'), 120*i+80); }); }
 
-if(sessionStorage.getItem('ok')){unlock();render();reveal();}
+if(sessionStorage.getItem('ok')){unlock();renderV2();reveal();}
 
 /* ===== PWA install ===== */
 let deferredPrompt;
