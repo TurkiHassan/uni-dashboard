@@ -46,6 +46,40 @@ with sync_playwright() as p:
     OUT['cards_count'] = len(cards)
     OUT['cards'] = cards
 
+    # Blackboard exposes course calendar events through a per-course API.
+    # Read it explicitly instead of assuming that the general calendar feed
+    # contains the weekly meeting timetable.  An empty result is valid: many
+    # institutions keep the actual timetable in the academic portal.
+    course_ids = page.locator("button[id^='more-info-']").evaluate_all(
+        "els => els.map(e => e.id.replace(/^more-info-/, '')).filter(Boolean)"
+    )
+    OUT['week'] = []
+    OUT['schedule_status'] = 'EMPTY'
+    try:
+        schedule_rows = page.evaluate("""
+        async (ids) => {
+          const out = [];
+          for (const id of ids) {
+            const r = await fetch(`/learn/api/v1/courses/${id}/schedule?limit=100`);
+            if (!r.ok) continue;
+            const body = await r.json();
+            for (const event of (body.results || [])) {
+              out.push({courseId: id, event});
+            }
+          }
+          return out;
+        }
+        """, course_ids)
+        OUT['schedule_events'] = schedule_rows
+        if schedule_rows:
+            OUT['schedule_status'] = 'FOUND'
+            # Keep the dashboard's compact week contract while retaining the
+            # raw events for the publisher to normalize dates/times safely.
+            OUT['week'] = schedule_rows
+    except Exception as exc:
+        OUT['schedule_status'] = 'ERROR'
+        OUT['schedule_error'] = str(exc)
+
     # fallback: grab main region text
     try:
         OUT['page_text'] = page.inner_text('main')[:6000]
