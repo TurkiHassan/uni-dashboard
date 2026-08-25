@@ -1,4 +1,4 @@
-const CACHE = 'uni-dash-v5-bottomnav';
+const CACHE = 'uni-dash-v6-fixes';
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './assets/thmanyah/thmanyah-fonts.css'];
 const NETWORK_FIRST = ['./', './index.html', './data.js'];
 
