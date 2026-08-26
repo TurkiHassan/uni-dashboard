@@ -26,7 +26,7 @@ with sync_playwright() as p:
         page.click("text=المقررات الدراسية", timeout=15000)
     except Exception:
         try:
-            page.goto('https://lms.ut.edu.sa/ultra/courses', timeout=60000)
+            page.goto('https://lms.ut.edu.sa/ultra/course', timeout=60000)
         except Exception as e:
             pass
     page.wait_for_timeout(8000)
