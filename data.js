@@ -1,5 +1,31 @@
 window.DATA = {
-  "updated": "28 أغسطس 2026 - 8:30 م",
+  "updated": "29 أغسطس 2026 - 8:30 ص",
+  "courses": [
+    {
+      "code": "481_CSC601_28227_1_231_18",
+      "name": "أساسيات الذكاء الاصطناعي 601",
+      "instructor": "DR. عماد الحربي",
+      "status": "مفتوح"
+    },
+    {
+      "code": "481_CSC605_28262_1_228_18",
+      "name": "البرمجة المتقدمة وإطارات برمجة 605",
+      "instructor": "DR. احمد مباركي",
+      "status": "مفتوح"
+    },
+    {
+      "code": "481_CSC602_28261_1_227_18",
+      "name": "الرياضيات الحاسوبية 602",
+      "instructor": "DR. محمد عالم",
+      "status": "مفتوح"
+    },
+    {
+      "code": "481_CSC608_28263_1_229_18",
+      "name": "طرق بحث 608",
+      "instructor": "DR. محمد الوكيل",
+      "status": "مفتوح"
+    }
+  ],
   "semester": {
     "start": "2026-08-23T00:00:00",
     "end": "2027-01-09T00:00:00",
@@ -67,32 +93,6 @@ window.DATA = {
       "type": "exam"
     }
   ],
-  "courses": [
-    {
-      "code": "481_CSC601_28227_1_231_18",
-      "name": "أساسيات الذكاء الاصطناعي 601",
-      "instructor": "DR. عماد الحربي",
-      "status": "مفتوح"
-    },
-    {
-      "code": "481_CSC605_28262_1_228_18",
-      "name": "البرمجة المتقدمة وإطارات برمجة 605",
-      "instructor": "DR. احمد مباركي",
-      "status": "مفتوح"
-    },
-    {
-      "code": "481_CSC602_28261_1_227_18",
-      "name": "الرياضيات الحاسوبية 602",
-      "instructor": "DR. محمد عالم",
-      "status": "مفتوح"
-    },
-    {
-      "code": "481_CSC608_28263_1_229_18",
-      "name": "طرق بحث 608",
-      "instructor": "DR. محمد الوكيل",
-      "status": "مفتوح"
-    }
-  ],
   "tasks": [],
   "week": [
     {
@@ -114,14 +114,29 @@ window.DATA = {
   ],
   "announcements": [
     {
-      "title": "تمت إضافة: Lecture_1.ipynb",
+      "title": "Lecture_1.ipynb",
       "course": "البرمجة المتقدمة وإطارات برمجة 605",
       "date": "25 أغسطس 2026 — 4:46 م"
     },
     {
-      "title": "محتوى المقرر و التوصيف و التعليمات",
+      "title": "VERY IMPORTANT INSTRUCTIONS- تعليمات هامة جدا",
       "course": "طرق بحث 608",
-      "date": "23 أغسطس 2026 — 7:45 م"
+      "date": "19 أغسطس 2026 — 7:09 م"
+    },
+    {
+      "title": "CSC608_Week13_University_of_Tabuk.pdf",
+      "course": "طرق بحث 608",
+      "date": "19 أغسطس 2026 — 7:08 م"
+    },
+    {
+      "title": "CSC608_Lecture10_University_of_Tabuk.pdf",
+      "course": "طرق بحث 608",
+      "date": "19 أغسطس 2026 — 7:08 م"
+    },
+    {
+      "title": "Lecture_9_Research_Methods_CSC608.pdf",
+      "course": "طرق بحث 608",
+      "date": "19 أغسطس 2026 — 7:08 م"
     }
   ],
   "studyPlan": [
