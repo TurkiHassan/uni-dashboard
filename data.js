@@ -1,5 +1,5 @@
 window.DATA = {
-  "updated": "29 أغسطس 2026 - 8:30 ص",
+  "updated": "29 أغسطس 2026 - 8:33 م",
   "courses": [
     {
       "code": "481_CSC601_28227_1_231_18",
@@ -114,6 +114,11 @@ window.DATA = {
   ],
   "announcements": [
     {
+      "title": "New content has been added to your course",
+      "course": "أساسيات الذكاء الاصطناعي 601",
+      "date": "29 أغسطس 2026"
+    },
+    {
       "title": "Lecture_1.ipynb",
       "course": "البرمجة المتقدمة وإطارات برمجة 605",
       "date": "25 أغسطس 2026 — 4:46 م"
@@ -130,11 +135,6 @@ window.DATA = {
     },
     {
       "title": "CSC608_Lecture10_University_of_Tabuk.pdf",
-      "course": "طرق بحث 608",
-      "date": "19 أغسطس 2026 — 7:08 م"
-    },
-    {
-      "title": "Lecture_9_Research_Methods_CSC608.pdf",
       "course": "طرق بحث 608",
       "date": "19 أغسطس 2026 — 7:08 م"
     }
