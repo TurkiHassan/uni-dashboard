@@ -1,5 +1,5 @@
 window.DATA = {
-  "updated": "7 سبتمبر 2026 - 8:33 م",
+  "updated": "8 سبتمبر 2026 - 8:32 ص",
   "courses": [
     {
       "code": "481_CSC601_28227_1_231_18",
@@ -114,6 +114,11 @@ window.DATA = {
   ],
   "announcements": [
     {
+      "title": "lecture 2 solution.docx",
+      "course": "الرياضيات الحاسوبية 602",
+      "date": "8 سبتمبر 2026"
+    },
+    {
       "title": "MLModel.py",
       "course": "أساسيات الذكاء الاصطناعي 601",
       "date": "6 سبتمبر 2026 — 8:51 م"
@@ -132,11 +137,6 @@ window.DATA = {
       "title": "Lecture_2_Linear_Algebra.pdf",
       "course": "الرياضيات الحاسوبية 602",
       "date": "6 سبتمبر 2026 — 10:44 ص"
-    },
-    {
-      "title": "CSC605.zip",
-      "course": "البرمجة المتقدمة وإطارات برمجة 605",
-      "date": "3 سبتمبر 2026 — 10:54 ص"
     }
   ],
   "studyPlan": [
