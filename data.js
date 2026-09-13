@@ -1,5 +1,5 @@
 window.DATA = {
-  "updated": "13 سبتمبر 2026 - 8:32 ص",
+  "updated": "13 سبتمبر 2026 - 8:35 م",
   "courses": [
     {
       "code": "481_CSC601_28227_1_231_18",
@@ -93,7 +93,24 @@ window.DATA = {
       "type": "exam"
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "title": "Quiz 1",
+      "course": "البرمجة المتقدمة وإطارات برمجة 605",
+      "due": "8 سبتمبر 2026 — 5:20 م",
+      "dateISO": "2026-09-08T17:20:00+03:00",
+      "done": false,
+      "late": true
+    },
+    {
+      "title": "Project 1",
+      "course": "أساسيات الذكاء الاصطناعي 601",
+      "due": "8 أكتوبر 2026 — 11:59 م",
+      "dateISO": "2026-10-08T23:59:00+03:00",
+      "done": false,
+      "late": false
+    }
+  ],
   "week": [
     {
       "day": "الأحد",
@@ -114,6 +131,16 @@ window.DATA = {
   ],
   "announcements": [
     {
+      "title": "Lecture_4.pptx",
+      "course": "أساسيات الذكاء الاصطناعي 601",
+      "date": "13 سبتمبر 2026 — 3:15 م"
+    },
+    {
+      "title": "Project 1",
+      "course": "أساسيات الذكاء الاصطناعي 601",
+      "date": "12 سبتمبر 2026 — 3:13 م"
+    },
+    {
       "title": "Quiz 1",
       "course": "البرمجة المتقدمة وإطارات برمجة 605",
       "date": "8 سبتمبر 2026 — 5:07 م"
@@ -132,11 +159,6 @@ window.DATA = {
       "title": "Student_Grades_Dummy.xlsx",
       "course": "أساسيات الذكاء الاصطناعي 601",
       "date": "6 سبتمبر 2026 — 8:51 م"
-    },
-    {
-      "title": "Lecture_3.pptx",
-      "course": "أساسيات الذكاء الاصطناعي 601",
-      "date": "6 سبتمبر 2026 — 3:45 م"
     }
   ],
   "studyPlan": [
