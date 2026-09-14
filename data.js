@@ -1,5 +1,5 @@
 window.DATA = {
-  "updated": "14 سبتمبر 2026 - 8:32 ص",
+  "updated": "14 سبتمبر 2026 - 8:32 م",
   "courses": [
     {
       "code": "481_CSC601_28227_1_231_18",
@@ -131,6 +131,11 @@ window.DATA = {
   ],
   "announcements": [
     {
+      "title": "New content has been added to your course",
+      "course": "أساسيات الذكاء الاصطناعي 601",
+      "date": "14 سبتمبر 2026 — 8:35 ص"
+    },
+    {
       "title": "Lecture_4.pptx",
       "course": "أساسيات الذكاء الاصطناعي 601",
       "date": "13 سبتمبر 2026 — 3:15 م"
@@ -152,11 +157,6 @@ window.DATA = {
     },
     {
       "title": "MLModel.py",
-      "course": "أساسيات الذكاء الاصطناعي 601",
-      "date": "6 سبتمبر 2026 — 8:51 م"
-    },
-    {
-      "title": "Student_Grades_Dummy.xlsx",
       "course": "أساسيات الذكاء الاصطناعي 601",
       "date": "6 سبتمبر 2026 — 8:51 م"
     }
