@@ -1,5 +1,5 @@
 window.DATA = {
-  "updated": "14 سبتمبر 2026 - 8:32 م",
+  "updated": "16 سبتمبر 2026 - 1:22 م",
   "courses": [
     {
       "code": "481_CSC601_28227_1_231_18",
@@ -95,12 +95,12 @@ window.DATA = {
   ],
   "tasks": [
     {
-      "title": "Quiz 1",
+      "title": "Exercies",
       "course": "البرمجة المتقدمة وإطارات برمجة 605",
-      "due": "8 سبتمبر 2026 — 5:20 م",
-      "dateISO": "2026-09-08T17:20:00+03:00",
+      "due": "20 سبتمبر 2026 — 11:59 م",
+      "dateISO": "2026-09-20T23:59:00+03:00",
       "done": false,
-      "late": true
+      "late": false
     },
     {
       "title": "Project 1",
@@ -131,7 +131,22 @@ window.DATA = {
   ],
   "announcements": [
     {
-      "title": "New content has been added to your course",
+      "title": "Exercies",
+      "course": "البرمجة المتقدمة وإطارات برمجة 605",
+      "date": "16 سبتمبر 2026 — 11:52 م"
+    },
+    {
+      "title": "Grade posted: Quiz 1",
+      "course": "البرمجة المتقدمة وإطارات برمجة 605",
+      "date": "16 سبتمبر 2026 — 10:56 ص"
+    },
+    {
+      "title": "Student_Grades_Dummy_Pass.xlsx",
+      "course": "أساسيات الذكاء الاصطناعي 601",
+      "date": "14 سبتمبر 2026 — 8:35 ص"
+    },
+    {
+      "title": "MLModel_OverSampler_UnderSampler.py",
       "course": "أساسيات الذكاء الاصطناعي 601",
       "date": "14 سبتمبر 2026 — 8:35 ص"
     },
@@ -144,21 +159,6 @@ window.DATA = {
       "title": "Project 1",
       "course": "أساسيات الذكاء الاصطناعي 601",
       "date": "12 سبتمبر 2026 — 3:13 م"
-    },
-    {
-      "title": "Quiz 1",
-      "course": "البرمجة المتقدمة وإطارات برمجة 605",
-      "date": "8 سبتمبر 2026 — 5:07 م"
-    },
-    {
-      "title": "lecture 2 solution.docx",
-      "course": "الرياضيات الحاسوبية 602",
-      "date": "8 سبتمبر 2026 — 8:30 ص"
-    },
-    {
-      "title": "MLModel.py",
-      "course": "أساسيات الذكاء الاصطناعي 601",
-      "date": "6 سبتمبر 2026 — 8:51 م"
     }
   ],
   "studyPlan": [
