@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "1 أكتوبر 2026 — 11:36 ص",
-  "updatedISO": "2026-10-01T08:36:49Z",
+  "updated": "4 أكتوبر 2026 — 11:39 ص",
+  "updatedISO": "2026-10-04T08:39:15Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-10-01T08:36:49Z",
+    "timestamp": "2026-10-04T08:39:15Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -125,7 +125,7 @@ window.DATA = {
       "course": "الرياضيات الحاسوبية 602",
       "due": "3 أكتوبر 2026 — 11:59 م",
       "dateISO": "2026-10-03T23:59:00+03:00",
-      "done": false,
+      "done": true,
       "late": false
     }
   ],
