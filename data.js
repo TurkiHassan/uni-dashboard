@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "4 أكتوبر 2026 — 11:39 ص",
-  "updatedISO": "2026-10-04T08:39:15Z",
+  "updated": "7 أكتوبر 2026 — 12:47 م",
+  "updatedISO": "2026-10-07T09:47:30Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-10-04T08:39:15Z",
+    "timestamp": "2026-10-07T09:47:30Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -104,23 +104,6 @@ window.DATA = {
       "late": false
     },
     {
-      "title": "Quiz 1",
-      "course": "البرمجة المتقدمة وإطارات برمجة 605",
-      "due": "8 سبتمبر 2026 — 5:20 م",
-      "dateISO": "2026-09-08T17:20:00+03:00",
-      "done": true,
-      "late": true,
-      "note": "الدرجة 0/5 Final Grade: 0 points out of 5 points possible — مسجَّل متأخر"
-    },
-    {
-      "title": "Exercies",
-      "course": "البرمجة المتقدمة وإطارات برمجة 605",
-      "due": "20 سبتمبر 2026 — 11:59 م",
-      "dateISO": "2026-09-20T23:59:00+03:00",
-      "done": true,
-      "late": false
-    },
-    {
       "title": "New Assignment 9/26/26",
       "course": "الرياضيات الحاسوبية 602",
       "due": "3 أكتوبر 2026 — 11:59 م",
@@ -166,6 +149,11 @@ window.DATA = {
     }
   ],
   "announcements": [
+    {
+      "title": "Mid-term and Quiz",
+      "course": "الرياضيات الحاسوبية 602",
+      "date": "4 أكتوبر 2026 — 10:04 ص"
+    },
     {
       "title": "Attendance",
       "course": "الرياضيات الحاسوبية 602",
