@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "7 أكتوبر 2026 — 12:47 م",
-  "updatedISO": "2026-10-07T09:47:30Z",
+  "updated": "10 أكتوبر 2026 — 11:32 ص",
+  "updatedISO": "2026-10-10T08:32:28Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-10-07T09:47:30Z",
+    "timestamp": "2026-10-10T08:32:28Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -96,11 +96,11 @@ window.DATA = {
   ],
   "tasks": [
     {
-      "title": "Project 1",
+      "title": "Project 1(Content isn't available) 1 attempt submitted",
       "course": "أساسيات الذكاء الاصطناعي 601",
       "due": "8 أكتوبر 2026 — 11:59 م",
       "dateISO": "2026-10-08T23:59:00+03:00",
-      "done": false,
+      "done": true,
       "late": false
     },
     {
@@ -149,6 +149,11 @@ window.DATA = {
     }
   ],
   "announcements": [
+    {
+      "title": "Mock Exam",
+      "course": "البرمجة المتقدمة وإطارات برمجة 605",
+      "date": "7 أكتوبر 2026 — 10:01 ص"
+    },
     {
       "title": "Mid-term and Quiz",
       "course": "الرياضيات الحاسوبية 602",
