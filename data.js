@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "10 أكتوبر 2026 — 11:32 ص",
-  "updatedISO": "2026-10-10T08:32:28Z",
+  "updated": "13 أكتوبر 2026 — 11:35 ص",
+  "updatedISO": "2026-10-13T08:35:14Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-10-10T08:32:28Z",
+    "timestamp": "2026-10-13T08:35:14Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -150,6 +150,11 @@ window.DATA = {
   ],
   "announcements": [
     {
+      "title": "Important Announcement Regarding the Midterm Exam",
+      "course": "البرمجة المتقدمة وإطارات برمجة 605",
+      "date": "10 أكتوبر 2026 — 11:47 ص"
+    },
+    {
       "title": "Mock Exam",
       "course": "البرمجة المتقدمة وإطارات برمجة 605",
       "date": "7 أكتوبر 2026 — 10:01 ص"
@@ -157,7 +162,7 @@ window.DATA = {
     {
       "title": "Mid-term and Quiz",
       "course": "الرياضيات الحاسوبية 602",
-      "date": "4 أكتوبر 2026 — 10:04 ص"
+      "date": "11 أكتوبر 2026 — 10:07 ص"
     },
     {
       "title": "Attendance",
