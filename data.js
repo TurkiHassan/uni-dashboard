@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "13 أكتوبر 2026 — 11:35 ص",
-  "updatedISO": "2026-10-13T08:35:14Z",
+  "updated": "16 أكتوبر 2026 — 11:32 ص",
+  "updatedISO": "2026-10-16T08:32:37Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-10-13T08:35:14Z",
+    "timestamp": "2026-10-16T08:32:37Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
