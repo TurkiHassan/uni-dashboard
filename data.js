@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "16 أكتوبر 2026 — 11:32 ص",
-  "updatedISO": "2026-10-16T08:32:37Z",
+  "updated": "19 أكتوبر 2026 — 11:34 ص",
+  "updatedISO": "2026-10-19T08:34:00Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-10-16T08:32:37Z",
+    "timestamp": "2026-10-19T08:34:00Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -101,6 +101,14 @@ window.DATA = {
       "due": "8 أكتوبر 2026 — 11:59 م",
       "dateISO": "2026-10-08T23:59:00+03:00",
       "done": true,
+      "late": false
+    },
+    {
+      "title": "Project 2",
+      "course": "أساسيات الذكاء الاصطناعي 601",
+      "due": "19 نوفمبر 2026 — 11:59 م",
+      "dateISO": "2026-11-19T23:59:00+03:00",
+      "done": false,
       "late": false
     },
     {
