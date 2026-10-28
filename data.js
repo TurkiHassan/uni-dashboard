@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "25 أكتوبر 2026 — 11:32 ص",
-  "updatedISO": "2026-10-25T08:32:21Z",
+  "updated": "28 أكتوبر 2026 — 11:32 ص",
+  "updatedISO": "2026-10-28T08:32:20Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-10-25T08:32:21Z",
+    "timestamp": "2026-10-28T08:32:20Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -134,22 +134,6 @@ window.DATA = {
   ],
   "tasks": [
     {
-      "title": "Project 1(Content isn't available) 1 attempt submitted",
-      "course": "أساسيات الذكاء الاصطناعي 601",
-      "due": "8 أكتوبر 2026 — 11:59 م",
-      "dateISO": "2026-10-08T23:59:00+03:00",
-      "done": true,
-      "late": false
-    },
-    {
-      "title": "Project 2",
-      "course": "أساسيات الذكاء الاصطناعي 601",
-      "due": "19 نوفمبر 2026 — 11:59 م",
-      "dateISO": "2026-11-19T23:59:00+03:00",
-      "done": false,
-      "late": false
-    },
-    {
       "title": "New Assignment 9/26/26",
       "course": "الرياضيات الحاسوبية 602",
       "due": "3 أكتوبر 2026 — 11:59 م",
@@ -206,6 +190,11 @@ window.DATA = {
       "date": "7 أكتوبر 2026 — 10:01 ص"
     },
     {
+      "title": "paper Ideas",
+      "course": "الرياضيات الحاسوبية 602",
+      "date": "26 أكتوبر 2026 — 10:07 ص"
+    },
+    {
       "title": "Mid-term and Quiz",
       "course": "الرياضيات الحاسوبية 602",
       "date": "11 أكتوبر 2026 — 10:07 ص"
@@ -229,11 +218,6 @@ window.DATA = {
       "title": "تغيير قاعة المحاضرات",
       "course": "طرق بحث 608",
       "date": "2 سبتمبر 2026 — 12:39 م"
-    },
-    {
-      "title": "قاعة المحاضرات",
-      "course": "طرق بحث 608",
-      "date": "1 سبتمبر 2026 — 9:04 م"
     }
   ],
   "studyPlan": [
