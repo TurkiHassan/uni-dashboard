@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "28 أكتوبر 2026 — 11:32 ص",
-  "updatedISO": "2026-10-28T08:32:20Z",
+  "updated": "31 أكتوبر 2026 — 11:32 ص",
+  "updatedISO": "2026-10-31T08:32:29Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-10-28T08:32:20Z",
+    "timestamp": "2026-10-31T08:32:29Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -205,6 +205,11 @@ window.DATA = {
       "date": "8 سبتمبر 2026 — 8:43 ص"
     },
     {
+      "title": "Today's Lecture Postponed to Next Week",
+      "course": "طرق بحث 608",
+      "date": "28 أكتوبر 2026 — 8:12 ص"
+    },
+    {
       "title": "Lectures from this week to the end of the semester",
       "course": "طرق بحث 608",
       "date": "24 أكتوبر 2026 — 6:22 ص"
@@ -213,11 +218,6 @@ window.DATA = {
       "title": "No class this week because of the MidExams",
       "course": "طرق بحث 608",
       "date": "19 أكتوبر 2026 — 3:22 م"
-    },
-    {
-      "title": "تغيير قاعة المحاضرات",
-      "course": "طرق بحث 608",
-      "date": "2 سبتمبر 2026 — 12:39 م"
     }
   ],
   "studyPlan": [
