@@ -11,6 +11,7 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(grade_value('٠ / ١٠')['grade'], '0 / 10')
         self.assertEqual(grade_value('٠ / ١٠')['pct'], 0)
         self.assertEqual(grade_value('Not graded')['grade'], '')
+        self.assertEqual(grade_value('--')['grade'], '')
         self.assertIsNone(grade_value('4 / 0')['pct'])
 
     def test_decimal_and_letter_grades(self):
@@ -47,6 +48,12 @@ class ReviewTests(unittest.TestCase):
             [{'course':COURSE,'status':'OK','items':[{**ITEM,'grade':''}]}],'now')
         self.assertEqual(result['changes'][0]['old'],'2 / 3')
         self.assertEqual(result['changes'][0]['new'],'')
+
+    def test_placeholder_cleanup_does_not_create_grade_change(self):
+        old={**ITEM,'item':'واجب No attempts submitted','grade':'--'}
+        new={**ITEM,'item':'واجب','grade':''}
+        result=merge_results({'items':[old],'courses':{}},[{'course':COURSE,'status':'OK','items':[new]}],'now')
+        self.assertEqual(result['changes'],[])
 
     def test_public_payload_excludes_raw_data(self):
         result = public_grades({'items':[{**ITEM,'grade_raw':'hidden','password':'secret'}]})

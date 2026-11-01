@@ -145,68 +145,43 @@ window.DATA = {
   "grades": {
     "status": "OK",
     "message": "اكتمل التحقق من تقديرات جميع المقررات.",
-    "lastAttemptAt": "2026-11-01T22:43:55+03:00",
-    "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+    "lastAttemptAt": "2026-11-01T22:51:57+03:00",
+    "lastSuccessAt": "2026-11-01T22:51:57+03:00",
     "courses": {
       "_203638_1": {
         "name": "أساسيات الذكاء الاصطناعي 601",
         "code": "481_CSC601_28227_1_231_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-01T22:43:55+03:00",
-        "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+        "lastAttemptAt": "2026-11-01T22:51:57+03:00",
+        "lastSuccessAt": "2026-11-01T22:51:57+03:00",
         "count": 3
       },
       "_203644_1": {
         "name": "البرمجة المتقدمة وإطارات برمجة 605",
         "code": "481_CSC605_28262_1_228_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-01T22:43:55+03:00",
-        "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+        "lastAttemptAt": "2026-11-01T22:51:57+03:00",
+        "lastSuccessAt": "2026-11-01T22:51:57+03:00",
         "count": 4
       },
       "_203640_1": {
         "name": "الرياضيات الحاسوبية 602",
         "code": "481_CSC602_28261_1_227_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-01T22:43:55+03:00",
-        "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+        "lastAttemptAt": "2026-11-01T22:51:57+03:00",
+        "lastSuccessAt": "2026-11-01T22:51:57+03:00",
         "count": 2
       },
       "_203650_1": {
         "name": "طرق بحث 608",
         "code": "481_CSC608_28263_1_229_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-01T22:43:55+03:00",
-        "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+        "lastAttemptAt": "2026-11-01T22:51:57+03:00",
+        "lastSuccessAt": "2026-11-01T22:51:57+03:00",
         "count": 0
       }
     },
-    "changes": [
-      {
-        "id": "2a890f3e7b86b89fba28693b",
-        "course": "البرمجة المتقدمة وإطارات برمجة 605",
-        "item": "Project",
-        "old": "",
-        "new": "--",
-        "kind": "changed"
-      },
-      {
-        "id": "8da2e51222b6f12b64dd54bb",
-        "course": "الرياضيات الحاسوبية 602",
-        "item": "Attendance",
-        "old": "",
-        "new": "--",
-        "kind": "changed"
-      },
-      {
-        "id": "d29c6ecc91b04adcbce47bff",
-        "course": "الرياضيات الحاسوبية 602",
-        "item": "New Assignment 9/26/26",
-        "old": "",
-        "new": "--",
-        "kind": "changed"
-      }
-    ],
+    "changes": [],
     "items": [
       {
         "id": "81c733563550a58a6583d271",
@@ -220,35 +195,35 @@ window.DATA = {
         "score": 19.0,
         "maximum": 20.0,
         "pct": 95.0,
-        "checkedAt": "2026-11-01T22:43:55+03:00"
+        "checkedAt": "2026-11-01T22:51:57+03:00"
       },
       {
-        "id": "ea6ed4456513f88c9cd42d15",
+        "id": "e6bd31b0245138689855bc10",
         "courseId": "_203638_1",
         "course": "أساسيات الذكاء الاصطناعي 601",
         "code": "481_CSC601_28227_1_231_18",
-        "item": "Project 1 No attempts submitted",
+        "item": "Project 1",
         "due": "10/8/26",
         "status": "Graded",
         "grade": "20 / 20",
         "score": 20.0,
         "maximum": 20.0,
         "pct": 100.0,
-        "checkedAt": "2026-11-01T22:43:55+03:00"
+        "checkedAt": "2026-11-01T22:51:57+03:00"
       },
       {
-        "id": "744676aa350db7119c587e95",
+        "id": "1741aa3f963b4d96333eecd9",
         "courseId": "_203638_1",
         "course": "أساسيات الذكاء الاصطناعي 601",
         "code": "481_CSC601_28227_1_231_18",
-        "item": "Project 2 Attempt 0 started",
+        "item": "Project 2",
         "due": "11/19/26",
         "status": "Draft saved",
-        "grade": "--",
+        "grade": "",
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-01T22:43:55+03:00"
+        "checkedAt": "2026-11-01T22:51:57+03:00"
       },
       {
         "id": "9e5d8aec3670f6b7e9c8b08b",
@@ -262,7 +237,7 @@ window.DATA = {
         "score": 2.9,
         "maximum": 3.0,
         "pct": 96.7,
-        "checkedAt": "2026-11-01T22:43:55+03:00"
+        "checkedAt": "2026-11-01T22:51:57+03:00"
       },
       {
         "id": "4b767dee0084240315ee4dea",
@@ -276,7 +251,7 @@ window.DATA = {
         "score": 0.0,
         "maximum": 5.0,
         "pct": 0.0,
-        "checkedAt": "2026-11-01T22:43:55+03:00"
+        "checkedAt": "2026-11-01T22:51:57+03:00"
       },
       {
         "id": "a20dcda78a48089520edb751",
@@ -290,7 +265,7 @@ window.DATA = {
         "score": 7.0,
         "maximum": 20.0,
         "pct": 35.0,
-        "checkedAt": "2026-11-01T22:43:55+03:00"
+        "checkedAt": "2026-11-01T22:51:57+03:00"
       },
       {
         "id": "2a890f3e7b86b89fba28693b",
@@ -300,11 +275,11 @@ window.DATA = {
         "item": "Project",
         "due": "11/22/26",
         "status": "Unopened",
-        "grade": "--",
+        "grade": "",
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-01T22:43:55+03:00"
+        "checkedAt": "2026-11-01T22:51:57+03:00"
       },
       {
         "id": "8da2e51222b6f12b64dd54bb",
@@ -314,11 +289,11 @@ window.DATA = {
         "item": "Attendance",
         "due": "Ongoing",
         "status": "",
-        "grade": "--",
+        "grade": "",
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-01T22:43:55+03:00"
+        "checkedAt": "2026-11-01T22:51:57+03:00"
       },
       {
         "id": "d29c6ecc91b04adcbce47bff",
@@ -328,11 +303,11 @@ window.DATA = {
         "item": "New Assignment 9/26/26",
         "due": "10/3/26",
         "status": "Submitted",
-        "grade": "--",
+        "grade": "",
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-01T22:43:55+03:00"
+        "checkedAt": "2026-11-01T22:51:57+03:00"
       }
     ],
     "source": "Blackboard Ultra"

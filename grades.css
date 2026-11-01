@@ -1,4 +1,4 @@
-#grades-panel{scroll-margin-block-start:24px}
+#grades-panel{scroll-margin-block-start:100px}
 .grades-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .grades-heading h2{margin-block-end:6px}
 .grades-heading .cap{max-width:65ch;margin-block-end:16px}

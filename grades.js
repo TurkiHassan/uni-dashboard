@@ -29,7 +29,7 @@
     el('gradeSyncState').textContent = state.status === 'LOGIN_REQUIRED' ? 'تحتاج جلسة Blackboard إلى تسجيل دخول' : state.status === 'PARTIAL' ? 'اكتمل بعض المقررات؛ البقية تعرض آخر بيانات محفوظة' : state.status === 'ERROR' ? 'تعذر آخر فحص؛ هذه آخر بيانات محفوظة' : age > 72 ? 'التقديرات تحتاج إلى تحقق جديد' : 'تم التحقق من التقديرات';
     el('gradeSyncTime').textContent = `آخر فحص مكتمل: ${formatTime(state.lastSuccessAt)}`;
     if (state.lastSuccessAt) el('gradeSyncTime').dateTime = state.lastSuccessAt;
-    const statuses = {'graded':'رُصدت','submitted':'سُلّمت','not graded':'لم تُرصد','not submitted':'لم تُسلّم','missing':'غير مُسلّم','ongoing':'مستمر','closed':'مغلق'};
+    const statuses = {'graded':'رُصدت','submitted':'سُلّمت','not graded':'لم تُرصد','not submitted':'لم تُسلّم','missing':'غير مُسلّم','ongoing':'مستمر','closed':'مغلق','draft saved':'مسودة محفوظة','unopened':'لم يُفتح'};
     el('gradeRows').innerHTML = rows.map(item => {
       const courseState = state.courses?.[item.courseId];
       const stale = courseState && courseState.status !== 'OK';

@@ -20,12 +20,12 @@ def timestamp():
 
 def clean(value):
     value = unicodedata.normalize('NFKC', str(value or '')).replace('\u200e', '').replace('\u200f', '')
-    value = re.sub(r'Unlimited attempts possible|\(Content isn.t available\)', '', value, flags=re.I)
+    value = re.sub(r'Unlimited attempts possible|\(Content isn.t available\)|No attempts submitted|Attempt \d+ started', '', value, flags=re.I)
     return re.sub(r'\s+', ' ', value).strip()
 
 def grade_value(raw):
     text = clean(raw).translate(DIGITS)
-    if text.lower() in UNGRADED:
+    if text.lower() in UNGRADED or re.fullmatch(r'[-—–]+', text):
         return {'grade': '', 'score': None, 'maximum': None, 'pct': None}
     number = r'\d+(?:[.,]\d+)?'
     match = re.search(rf'({number})\s*(?:/|من|out of)\s*({number})', text, re.I)
@@ -97,10 +97,11 @@ def merge_results(previous, results, scanned_at):
         old = {clean(x.get('item')).casefold(): x for x in old_rows}
         for item in result['items']:
             prior = old.get(clean(item['item']).casefold())
-            if prior and prior.get('grade', '') != item['grade']:
+            prior_grade = grade_value(prior.get('grade', ''))['grade'] if prior else ''
+            if prior and prior_grade != item['grade']:
                 changes.append({'id': item['id'], 'course': item['course'], 'item': item['item'],
-                                'old': prior.get('grade', ''), 'new': item['grade'], 'kind': 'changed'})
-            elif item['grade'] and (not prior or not prior.get('grade')):
+                                'old': prior_grade, 'new': item['grade'], 'kind': 'new' if not prior_grade and item['grade'] else 'changed'})
+            elif item['grade'] and not prior:
                 changes.append({'id': item['id'], 'course': item['course'], 'item': item['item'],
                                 'old': '', 'new': item['grade'], 'kind': 'new'})
             item['checkedAt'] = scanned_at
