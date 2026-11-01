@@ -14,7 +14,8 @@
     const items = Array.isArray(state.items) ? state.items : [];
     const picker = el('gradeCourse');
     const selected = picker.value;
-    const courses = new Map(items.map(item => [courseKey(item), item.course]));
+    const courses = new Map(Object.entries(state.courses || {}).map(([id,course]) => [id,course.name]));
+    for (const item of items) courses.set(courseKey(item), item.course);
     picker.innerHTML = '<option value="">كل المقررات</option>' + [...courses].map(([key,name]) => `<option value="${escape(key)}">${escape(name)}</option>`).join('');
     if (courses.has(selected)) picker.value = selected;
     const filter = el('gradeFilter').value;
