@@ -308,9 +308,7 @@ def git_push(msg):
         return (r.returncode, (r.stdout or '') + (r.stderr or ''))
     run(['git', 'add', 'data.js'])
     rc, o = run(['git', '-c', 'user.name=Clove', '-c', 'user.email=clove@local', 'commit', '--only', 'data.js', '-m', msg])
-    if rc != 0 and 'nothing to commit' in o:
-        return 'لا تغيير في data.js'
-    if rc != 0:
+    if rc != 0 and 'nothing to commit' not in o:
         return 'تعذر حفظ التحديث في git؛ لم يتم الدفع'
     rc2, o2 = run(['git', 'push', 'origin', 'HEAD'])
     return 'تم الدفع' if rc2 == 0 else ('فشل الدفع: ' + o2.strip()[:200])
@@ -361,7 +359,7 @@ def update_dashboard(scanres, grades=None, publish=True):
     with sync_lock('dashboard'):
         write_datajs(d)
         msg = git_push('auto sync: blackboard scan %s' % now.strftime('%Y-%m-%d %H:%M')) if publish else 'تم تحديث الملفات محليًا'
-    return {'updated': True, 'message': msg, 'tasks': len(tasks), 'anns': len(anns)}
+    return {'updated': True, 'published': publish and msg == 'تم الدفع', 'message': msg, 'tasks': len(tasks), 'anns': len(anns)}
 
 
 def main():
@@ -429,7 +427,10 @@ def main():
             if grades.get('report'):
                 out['report'] = (out['report'] + '\n' + grades['report']).strip()
             out['dashboard'] = update_dashboard(res, grades=grades, publish='--no-push' not in sys.argv)
+            if '--no-push' not in sys.argv and not out['dashboard'].get('published'):
+                out['status'] = 'ERROR'
         except Exception as e:
+            out['status'] = 'ERROR'
             out['dashboard'] = {'updated': False, 'message': 'فشل تحديث اللوحة: %s' % e}
 
     save_json(STATE, {'task_keys': sorted(cur_task_keys), 'ann_keys': sorted(cur_ann_keys),

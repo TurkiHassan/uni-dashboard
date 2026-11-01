@@ -1,5 +1,7 @@
 import copy
 import unittest
+from unittest.mock import patch
+from types import SimpleNamespace
 from blackboard_review import grade_value, parse_rows, merge_results, public_grades
 from validate_data import validate
 
@@ -63,6 +65,20 @@ class ReviewTests(unittest.TestCase):
     def test_invalid_grades_rejected_before_write(self):
         data={'courses':[{'code':'x','name':'y'}], 'tasks':[], 'announcements':[], 'events':[], 'studyPlan':[], 'updated':'now', 'grades':{'items':[{}]}}
         self.assertTrue(validate(data))
+
+    def test_incomplete_task_scan_cannot_replace_dashboard(self):
+        from bb_watch import update_dashboard
+        with self.assertRaises(ValueError):
+            update_dashboard({'status':'PARTIAL','errors':[{'course':'one'}]})
+
+    def test_publisher_retries_push_when_commit_is_already_saved(self):
+        from bb_watch import git_push
+        answers=[SimpleNamespace(returncode=0,stdout='',stderr=''),
+                 SimpleNamespace(returncode=1,stdout='nothing to commit, working tree clean',stderr=''),
+                 SimpleNamespace(returncode=0,stdout='Everything up-to-date',stderr='')]
+        with patch('bb_watch.subprocess.run',side_effect=answers) as run:
+            self.assertEqual(git_push('test'),'تم الدفع')
+            self.assertEqual(run.call_args_list[-1].args[0],['git','push','origin','HEAD'])
 
 if __name__ == '__main__':
     unittest.main()
