@@ -14,12 +14,18 @@ Output JSON (also written to bb_watch_report.json):
     dashboard  : {'updated': bool, 'message': str}
 """
 import json, io, os, sys, re, time, socket, datetime, subprocess
+from blackboard_storage import atomic_json, atomic_text, sync_lock
 
 BASE = 'https://lms.ut.edu.sa'
 HERE = os.path.dirname(os.path.abspath(__file__))
 STATE = os.path.join(HERE, 'bb_watch_state.json')
 REPORT = os.path.join(HERE, 'bb_watch_report.json')
 DATAJS = os.path.join(HERE, 'data.js')
+
+# Saved university (Blackboard) credentials — used only as an auto-fill fallback
+# when Chrome's saved-password autofill doesn't trigger on the SSO form.
+from blackboard_auth import load_credentials
+BB_USER, BB_PASS = load_credentials()
 
 # --- Chrome CDP bootstrap (added 2026-10-07: fix ECONNREFUSED ::1:9222) ---
 CDP_HOST = '127.0.0.1'
@@ -90,13 +96,14 @@ def load_json(path, default):
 
 
 def save_json(path, obj):
-    with io.open(path, 'w', encoding='utf-8') as f:
-        f.write(json.dumps(obj, ensure_ascii=False, indent=2))
+    atomic_json(path, obj)
 
 
 def is_login_url(u):
     u = (u or '').rstrip('/')
-    return ('new_loc' in u) or ('/webapps/login' in u) or (u == BASE) or u == BASE + '/?'
+    from urllib.parse import urlparse
+    parsed = urlparse(u)
+    return ('new_loc' in u or '/login' in parsed.path.lower() or '/sso' in parsed.path.lower() or (u == BASE) or u == BASE + '/?')
 
 
 def parse_mdy(s):
@@ -141,7 +148,7 @@ def fmt_ann_date(posted):
 
 def scan():
     """Return dict with status/tasks/anns."""
-    res = {'status': 'OK', 'tasks': [], 'anns': []}
+    res = {'status': 'OK', 'tasks': [], 'anns': [], 'errors': []}
     res['chrome'] = ensure_chrome_debug()
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
@@ -172,6 +179,22 @@ def scan():
                 body_head = page.inner_text('body')[:400]
             except Exception:
                 pass
+            # Fallback: if the fields were not auto-filled, fill the saved credentials.
+            if is_login_url(page.url) or ('اسم المستخدم' in body_head and 'كلمة المرور' in body_head):
+                try:
+                    has_form = page.evaluate("() => !!(document.querySelector('#user_id') || document.querySelector('#password'))")
+                    if has_form:
+                        u = page.evaluate("() => (document.querySelector('#user_id')||{}).value || ''")
+                        pw = page.evaluate("() => (document.querySelector('#password')||{}).value || ''")
+                        if not u:
+                            page.fill('#user_id', BB_USER)
+                        if not pw:
+                            page.fill('#password', BB_PASS)
+                        page.click('#entry-login', timeout=5000)
+                        page.wait_for_timeout(9000)
+                        body_head = page.inner_text('body')[:400]
+                except Exception:
+                    pass
             if is_login_url(page.url) or ('اسم المستخدم' in body_head and 'كلمة المرور' in body_head):
                 res['status'] = 'LOGIN_REQUIRED'
                 return res
@@ -227,7 +250,7 @@ def scan():
                         'status': status, 'grade': grade, 'done': done, 'late': late,
                     })
             except Exception as e:
-                res['tasks'].append({'course': cname, 'title': '__ERR__', 'err': str(e)})
+                res['errors'].append({'course': cname, 'section': 'tasks'})
 
             # ---- announcements ----
             try:
@@ -255,7 +278,9 @@ def scan():
                         'raw': '%s (%s)' % (title, it['p']),
                     })
             except Exception:
-                pass
+                res['errors'].append({'course': cname, 'section': 'announcements'})
+    if res['errors']:
+        res['status'] = 'PARTIAL'
     return res
 
 
@@ -270,8 +295,11 @@ def read_datajs():
 
 
 def write_datajs(d):
-    with io.open(DATAJS, 'w', encoding='utf-8') as f:
-        f.write('window.DATA = ' + json.dumps(d, ensure_ascii=False, indent=2) + ';\n')
+    from validate_data import validate
+    errors = validate(d)
+    if errors:
+        raise ValueError('رفض استبدال بيانات اللوحة: ' + '; '.join(errors))
+    atomic_text(DATAJS, 'window.DATA = ' + json.dumps(d, ensure_ascii=False, indent=2) + ';\n')
 
 
 def git_push(msg):
@@ -279,14 +307,18 @@ def git_push(msg):
         r = subprocess.run(args, cwd=HERE, capture_output=True, text=True)
         return (r.returncode, (r.stdout or '') + (r.stderr or ''))
     run(['git', 'add', 'data.js'])
-    rc, o = run(['git', '-c', 'user.name=Clove', '-c', 'user.email=clove@local', 'commit', '-m', msg])
+    rc, o = run(['git', '-c', 'user.name=Clove', '-c', 'user.email=clove@local', 'commit', '--only', 'data.js', '-m', msg])
     if rc != 0 and 'nothing to commit' in o:
         return 'لا تغيير في data.js'
+    if rc != 0:
+        return 'تعذر حفظ التحديث في git؛ لم يتم الدفع'
     rc2, o2 = run(['git', 'push', 'origin', 'HEAD'])
     return 'تم الدفع' if rc2 == 0 else ('فشل الدفع: ' + o2.strip()[:200])
 
 
-def update_dashboard(scanres):
+def update_dashboard(scanres, grades=None, publish=True):
+    if scanres.get('status') != 'OK' or scanres.get('errors'):
+        raise ValueError('فحص غير مكتمل؛ احتُفظ بآخر بيانات صالحة')
     d = read_datajs()
     if not d:
         return {'updated': False, 'message': 'تعذّر قراءة data.js'}
@@ -305,19 +337,18 @@ def update_dashboard(scanres):
         item = {'title': t['title'], 'course': t['course'], 'due': t['due'],
                 'dateISO': t['dateISO'], 'done': t['done'], 'late': t['late']}
         note = []
-        if t.get('grade') and t['grade'] not in ('Not graded',):
-            note.append('الدرجة ' + t['grade'])
         if t.get('late'):
             note.append('مسجَّل متأخر')
         if note:
             item['note'] = ' — '.join(note)
         tasks.append(item)
-    if tasks:
-        d['tasks'] = tasks
+    d['tasks'] = tasks
 
     anns = scanres['anns'][:8]
-    if anns:
-        d['announcements'] = [{'title': a['title'], 'course': a['course'], 'date': a['date']} for a in anns]
+    d['announcements'] = [{'title': a['title'], 'course': a['course'], 'date': a['date']} for a in anns]
+    if grades is not None:
+        from blackboard_review import public_grades
+        d['grades'] = public_grades(grades)
 
     # semester + events always come from the official UT academic calendar file
     try:
@@ -327,8 +358,9 @@ def update_dashboard(scanres):
     except Exception as e:
         print('WARN official_calendar:', e)
 
-    write_datajs(d)
-    msg = git_push('auto sync: blackboard scan %s' % now.strftime('%Y-%m-%d %H:%M'))
+    with sync_lock('dashboard'):
+        write_datajs(d)
+        msg = git_push('auto sync: blackboard scan %s' % now.strftime('%Y-%m-%d %H:%M')) if publish else 'تم تحديث الملفات محليًا'
     return {'updated': True, 'message': msg, 'tasks': len(tasks), 'anns': len(anns)}
 
 
@@ -342,6 +374,13 @@ def main():
     except Exception as e:
         out['status'] = 'ERROR'
         out['report'] = 'فشل الفحص: %s' % e
+        save_json(REPORT, out)
+        print(json.dumps(out, ensure_ascii=False))
+        return
+
+    if res['status'] == 'PARTIAL':
+        out['status'] = 'ERROR'
+        out['report'] = 'لم يكتمل فحص جميع المقررات؛ احتُفظ ببيانات اللوحة والحالة السابقة.'
         save_json(REPORT, out)
         print(json.dumps(out, ensure_ascii=False))
         return
@@ -384,7 +423,12 @@ def main():
 
     if update:
         try:
-            out['dashboard'] = update_dashboard(res)
+            from blackboard_review import run_sync
+            grades = run_sync()
+            out['grades'] = {'status': grades['status'], 'changed': len(grades['changes'])}
+            if grades.get('report'):
+                out['report'] = (out['report'] + '\n' + grades['report']).strip()
+            out['dashboard'] = update_dashboard(res, grades=grades, publish='--no-push' not in sys.argv)
         except Exception as e:
             out['dashboard'] = {'updated': False, 'message': 'فشل تحديث اللوحة: %s' % e}
 

@@ -1,0 +1,34 @@
+#grades-panel{scroll-margin-block-start:24px}
+.grades-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.grades-heading h2{margin-block-end:6px}
+.grades-heading .cap{max-width:65ch;margin-block-end:16px}
+.grades-refresh{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--accent);border-radius:10px;background:var(--accent);color:#fff;padding:10px 16px;cursor:pointer;white-space:nowrap}
+.grades-refresh:hover{filter:brightness(.92)}
+.grades-refresh:disabled{opacity:.65;cursor:wait}
+.grades-refresh:focus-visible,.grades-tools select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.grades-health{display:flex;gap:10px 20px;flex-wrap:wrap;align-items:center;padding-block:12px;border-block:1px solid var(--line);font-size:14px}
+.grades-health strong{font-weight:600}
+.grades-health time{color:var(--muted)}
+.grades-health[data-state="warn"] strong{color:#875500}
+.grades-health[data-state="error"] strong{color:var(--red)}
+body.dark .grades-health[data-state="warn"] strong{color:#efc76e}
+body.dark .grades-health[data-state="error"] strong{color:#ffaba1}
+.grades-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-block:18px}
+.grades-tools label{display:flex;gap:8px;align-items:center;font-size:14px}
+.grades-tools select{font:inherit;font-size:14px;max-width:100%;min-height:42px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.grades-count{margin-inline-start:auto;color:var(--muted);font-size:14px}
+.grades-scroll{overflow-x:auto;max-width:100%;overscroll-behavior-inline:contain}
+.grades-table{border-collapse:collapse;width:100%;font-size:14px;text-align:start}
+.grades-table th{font-weight:600;color:var(--muted);white-space:nowrap;border-block-end:1px solid var(--line);padding:12px 10px}
+.grades-table td{padding:16px 10px;border-block-end:1px solid var(--line);vertical-align:top;text-align:start}
+.grades-table th:first-child,.grades-table td:first-child{padding-inline-start:0}
+.grades-table tr:last-child td{border-block-end:0}
+.grades-item{min-width:180px;max-width:36ch;overflow-wrap:anywhere;font-weight:600}
+.grades-course{max-width:28ch;overflow-wrap:anywhere}
+.grades-value{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.grades-muted{color:var(--muted);font-size:14px;font-weight:400}
+.grades-change{display:block;color:var(--accent);font-size:12px;font-weight:600;margin-block-start:4px}
+body.dark .grades-change{color:#86d7bd}
+.grades-empty{color:var(--muted);text-align:center;padding:32px 16px;font-size:15px}
+.grades-note{font-size:13px;color:var(--muted);margin-block-start:14px;max-width:72ch}
+@media(max-width:600px){.grades-tools{align-items:stretch;gap:10px}.grades-tools label{flex:1 1 100%;justify-content:space-between}.grades-tools select{max-width:72%;width:72%}.grades-count{margin-inline-start:0}.grades-table th,.grades-table td{padding:12px 8px}.grades-item{min-width:150px}.grades-refresh{width:100%}}

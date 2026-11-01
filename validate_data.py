@@ -33,6 +33,16 @@ def validate(data: dict) -> list[str]:
             errors.append(f"{key} must be an array")
     if not data.get("updated"):
         errors.append("updated timestamp is missing")
+    grades = data.get('grades')
+    if grades is not None:
+        if not isinstance(grades, dict) or not isinstance(grades.get('items'), list):
+            errors.append('grades.items must be an array')
+        else:
+            for i, item in enumerate(grades['items']):
+                if not isinstance(item, dict) or not item.get('course') or not item.get('item'):
+                    errors.append(f'grades.items[{i}] must identify its course and item')
+                elif item.get('grade') is not None and not isinstance(item.get('grade'), str):
+                    errors.append(f'grades.items[{i}].grade must be text')
     return errors
 
 

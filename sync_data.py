@@ -135,6 +135,7 @@ def main() -> int:
     updated = f"{now.day} {MONTHS_AR[now.strftime('%b')]} {now.year} - {hh}:{now.minute:02d} {'م' if now.hour >= 12 else 'ص'}"
 
     new = {
+        **old,
         'updated': updated,
         'courses': old.get('courses', []),      # unchanged this run (4 courses match)
         'semester': old['semester'],

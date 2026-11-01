@@ -1,0 +1,13 @@
+.qa_chrome/
+__pycache__/
+*.pyc
+bb_*.json
+bb_*.png
+*_state.json
+*_report.json
+*.log
+*.bak
+*.pre_run_bak
+output/
+.env
+credentials/

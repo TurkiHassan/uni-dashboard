@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "31 أكتوبر 2026 — 11:32 ص",
-  "updatedISO": "2026-10-31T08:32:29Z",
+  "updated": "1 نوفمبر 2026 — 10:43 م",
+  "updatedISO": "2026-11-01T19:43:55Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-10-31T08:32:29Z",
+    "timestamp": "2026-11-01T19:43:55Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -142,24 +142,201 @@ window.DATA = {
       "late": false
     }
   ],
-  "grades": [
-    {
-      "course": "البرمجة المتقدمة وإطارات برمجة 605",
-      "current": "0 / 5",
-      "items": [
-        {
-          "title": "Quiz 1",
-          "grade": "0/5",
-          "status": "مُصحَّح (متأخر)"
-        },
-        {
-          "title": "Exercies",
-          "grade": "—",
-          "status": "مُسلَّم"
-        }
-      ]
-    }
-  ],
+  "grades": {
+    "status": "OK",
+    "message": "اكتمل التحقق من تقديرات جميع المقررات.",
+    "lastAttemptAt": "2026-11-01T22:43:55+03:00",
+    "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+    "courses": {
+      "_203638_1": {
+        "name": "أساسيات الذكاء الاصطناعي 601",
+        "code": "481_CSC601_28227_1_231_18",
+        "status": "OK",
+        "lastAttemptAt": "2026-11-01T22:43:55+03:00",
+        "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+        "count": 3
+      },
+      "_203644_1": {
+        "name": "البرمجة المتقدمة وإطارات برمجة 605",
+        "code": "481_CSC605_28262_1_228_18",
+        "status": "OK",
+        "lastAttemptAt": "2026-11-01T22:43:55+03:00",
+        "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+        "count": 4
+      },
+      "_203640_1": {
+        "name": "الرياضيات الحاسوبية 602",
+        "code": "481_CSC602_28261_1_227_18",
+        "status": "OK",
+        "lastAttemptAt": "2026-11-01T22:43:55+03:00",
+        "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+        "count": 2
+      },
+      "_203650_1": {
+        "name": "طرق بحث 608",
+        "code": "481_CSC608_28263_1_229_18",
+        "status": "OK",
+        "lastAttemptAt": "2026-11-01T22:43:55+03:00",
+        "lastSuccessAt": "2026-11-01T22:43:55+03:00",
+        "count": 0
+      }
+    },
+    "changes": [
+      {
+        "id": "2a890f3e7b86b89fba28693b",
+        "course": "البرمجة المتقدمة وإطارات برمجة 605",
+        "item": "Project",
+        "old": "",
+        "new": "--",
+        "kind": "changed"
+      },
+      {
+        "id": "8da2e51222b6f12b64dd54bb",
+        "course": "الرياضيات الحاسوبية 602",
+        "item": "Attendance",
+        "old": "",
+        "new": "--",
+        "kind": "changed"
+      },
+      {
+        "id": "d29c6ecc91b04adcbce47bff",
+        "course": "الرياضيات الحاسوبية 602",
+        "item": "New Assignment 9/26/26",
+        "old": "",
+        "new": "--",
+        "kind": "changed"
+      }
+    ],
+    "items": [
+      {
+        "id": "81c733563550a58a6583d271",
+        "courseId": "_203638_1",
+        "course": "أساسيات الذكاء الاصطناعي 601",
+        "code": "481_CSC601_28227_1_231_18",
+        "item": "Midterm",
+        "due": "11/1/26",
+        "status": "",
+        "grade": "19 / 20",
+        "score": 19.0,
+        "maximum": 20.0,
+        "pct": 95.0,
+        "checkedAt": "2026-11-01T22:43:55+03:00"
+      },
+      {
+        "id": "ea6ed4456513f88c9cd42d15",
+        "courseId": "_203638_1",
+        "course": "أساسيات الذكاء الاصطناعي 601",
+        "code": "481_CSC601_28227_1_231_18",
+        "item": "Project 1 No attempts submitted",
+        "due": "10/8/26",
+        "status": "Graded",
+        "grade": "20 / 20",
+        "score": 20.0,
+        "maximum": 20.0,
+        "pct": 100.0,
+        "checkedAt": "2026-11-01T22:43:55+03:00"
+      },
+      {
+        "id": "744676aa350db7119c587e95",
+        "courseId": "_203638_1",
+        "course": "أساسيات الذكاء الاصطناعي 601",
+        "code": "481_CSC601_28227_1_231_18",
+        "item": "Project 2 Attempt 0 started",
+        "due": "11/19/26",
+        "status": "Draft saved",
+        "grade": "--",
+        "score": null,
+        "maximum": null,
+        "pct": null,
+        "checkedAt": "2026-11-01T22:43:55+03:00"
+      },
+      {
+        "id": "9e5d8aec3670f6b7e9c8b08b",
+        "courseId": "_203644_1",
+        "course": "البرمجة المتقدمة وإطارات برمجة 605",
+        "code": "481_CSC605_28262_1_228_18",
+        "item": "Exercies",
+        "due": "9/20/26",
+        "status": "Graded",
+        "grade": "2.9 / 3",
+        "score": 2.9,
+        "maximum": 3.0,
+        "pct": 96.7,
+        "checkedAt": "2026-11-01T22:43:55+03:00"
+      },
+      {
+        "id": "4b767dee0084240315ee4dea",
+        "courseId": "_203644_1",
+        "course": "البرمجة المتقدمة وإطارات برمجة 605",
+        "code": "481_CSC605_28262_1_228_18",
+        "item": "Quiz 1 (Late)",
+        "due": "9/8/26",
+        "status": "Graded",
+        "grade": "0 / 5",
+        "score": 0.0,
+        "maximum": 5.0,
+        "pct": 0.0,
+        "checkedAt": "2026-11-01T22:43:55+03:00"
+      },
+      {
+        "id": "a20dcda78a48089520edb751",
+        "courseId": "_203644_1",
+        "course": "البرمجة المتقدمة وإطارات برمجة 605",
+        "code": "481_CSC605_28262_1_228_18",
+        "item": "Mid-Term Test",
+        "due": "10/18/26",
+        "status": "",
+        "grade": "7 / 20",
+        "score": 7.0,
+        "maximum": 20.0,
+        "pct": 35.0,
+        "checkedAt": "2026-11-01T22:43:55+03:00"
+      },
+      {
+        "id": "2a890f3e7b86b89fba28693b",
+        "courseId": "_203644_1",
+        "course": "البرمجة المتقدمة وإطارات برمجة 605",
+        "code": "481_CSC605_28262_1_228_18",
+        "item": "Project",
+        "due": "11/22/26",
+        "status": "Unopened",
+        "grade": "--",
+        "score": null,
+        "maximum": null,
+        "pct": null,
+        "checkedAt": "2026-11-01T22:43:55+03:00"
+      },
+      {
+        "id": "8da2e51222b6f12b64dd54bb",
+        "courseId": "_203640_1",
+        "course": "الرياضيات الحاسوبية 602",
+        "code": "481_CSC602_28261_1_227_18",
+        "item": "Attendance",
+        "due": "Ongoing",
+        "status": "",
+        "grade": "--",
+        "score": null,
+        "maximum": null,
+        "pct": null,
+        "checkedAt": "2026-11-01T22:43:55+03:00"
+      },
+      {
+        "id": "d29c6ecc91b04adcbce47bff",
+        "courseId": "_203640_1",
+        "course": "الرياضيات الحاسوبية 602",
+        "code": "481_CSC602_28261_1_227_18",
+        "item": "New Assignment 9/26/26",
+        "due": "10/3/26",
+        "status": "Submitted",
+        "grade": "--",
+        "score": null,
+        "maximum": null,
+        "pct": null,
+        "checkedAt": "2026-11-01T22:43:55+03:00"
+      }
+    ],
+    "source": "Blackboard Ultra"
+  },
   "week": [
     {
       "day": "الأحد",
