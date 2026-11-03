@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "1 نوفمبر 2026 — 10:43 م",
-  "updatedISO": "2026-11-01T19:43:55Z",
+  "updated": "3 نوفمبر 2026 — 11:33 ص",
+  "updatedISO": "2026-11-03T08:33:00Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-11-01T19:43:55Z",
+    "timestamp": "2026-11-03T08:33:00Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -145,39 +145,39 @@ window.DATA = {
   "grades": {
     "status": "OK",
     "message": "اكتمل التحقق من تقديرات جميع المقررات.",
-    "lastAttemptAt": "2026-11-01T22:51:57+03:00",
-    "lastSuccessAt": "2026-11-01T22:51:57+03:00",
+    "lastAttemptAt": "2026-11-03T11:33:00+03:00",
+    "lastSuccessAt": "2026-11-03T11:33:00+03:00",
     "courses": {
       "_203638_1": {
         "name": "أساسيات الذكاء الاصطناعي 601",
         "code": "481_CSC601_28227_1_231_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-01T22:51:57+03:00",
-        "lastSuccessAt": "2026-11-01T22:51:57+03:00",
+        "lastAttemptAt": "2026-11-03T11:33:00+03:00",
+        "lastSuccessAt": "2026-11-03T11:33:00+03:00",
         "count": 3
       },
       "_203644_1": {
         "name": "البرمجة المتقدمة وإطارات برمجة 605",
         "code": "481_CSC605_28262_1_228_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-01T22:51:57+03:00",
-        "lastSuccessAt": "2026-11-01T22:51:57+03:00",
+        "lastAttemptAt": "2026-11-03T11:33:00+03:00",
+        "lastSuccessAt": "2026-11-03T11:33:00+03:00",
         "count": 4
       },
       "_203640_1": {
         "name": "الرياضيات الحاسوبية 602",
         "code": "481_CSC602_28261_1_227_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-01T22:51:57+03:00",
-        "lastSuccessAt": "2026-11-01T22:51:57+03:00",
+        "lastAttemptAt": "2026-11-03T11:33:00+03:00",
+        "lastSuccessAt": "2026-11-03T11:33:00+03:00",
         "count": 2
       },
       "_203650_1": {
         "name": "طرق بحث 608",
         "code": "481_CSC608_28263_1_229_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-01T22:51:57+03:00",
-        "lastSuccessAt": "2026-11-01T22:51:57+03:00",
+        "lastAttemptAt": "2026-11-03T11:33:00+03:00",
+        "lastSuccessAt": "2026-11-03T11:33:00+03:00",
         "count": 0
       }
     },
@@ -195,7 +195,7 @@ window.DATA = {
         "score": 19.0,
         "maximum": 20.0,
         "pct": 95.0,
-        "checkedAt": "2026-11-01T22:51:57+03:00"
+        "checkedAt": "2026-11-03T11:33:00+03:00"
       },
       {
         "id": "e6bd31b0245138689855bc10",
@@ -209,7 +209,7 @@ window.DATA = {
         "score": 20.0,
         "maximum": 20.0,
         "pct": 100.0,
-        "checkedAt": "2026-11-01T22:51:57+03:00"
+        "checkedAt": "2026-11-03T11:33:00+03:00"
       },
       {
         "id": "1741aa3f963b4d96333eecd9",
@@ -223,7 +223,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-01T22:51:57+03:00"
+        "checkedAt": "2026-11-03T11:33:00+03:00"
       },
       {
         "id": "9e5d8aec3670f6b7e9c8b08b",
@@ -237,7 +237,7 @@ window.DATA = {
         "score": 2.9,
         "maximum": 3.0,
         "pct": 96.7,
-        "checkedAt": "2026-11-01T22:51:57+03:00"
+        "checkedAt": "2026-11-03T11:33:00+03:00"
       },
       {
         "id": "4b767dee0084240315ee4dea",
@@ -251,7 +251,7 @@ window.DATA = {
         "score": 0.0,
         "maximum": 5.0,
         "pct": 0.0,
-        "checkedAt": "2026-11-01T22:51:57+03:00"
+        "checkedAt": "2026-11-03T11:33:00+03:00"
       },
       {
         "id": "a20dcda78a48089520edb751",
@@ -265,7 +265,7 @@ window.DATA = {
         "score": 7.0,
         "maximum": 20.0,
         "pct": 35.0,
-        "checkedAt": "2026-11-01T22:51:57+03:00"
+        "checkedAt": "2026-11-03T11:33:00+03:00"
       },
       {
         "id": "2a890f3e7b86b89fba28693b",
@@ -279,7 +279,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-01T22:51:57+03:00"
+        "checkedAt": "2026-11-03T11:33:00+03:00"
       },
       {
         "id": "8da2e51222b6f12b64dd54bb",
@@ -293,7 +293,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-01T22:51:57+03:00"
+        "checkedAt": "2026-11-03T11:33:00+03:00"
       },
       {
         "id": "d29c6ecc91b04adcbce47bff",
@@ -307,7 +307,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-01T22:51:57+03:00"
+        "checkedAt": "2026-11-03T11:33:00+03:00"
       }
     ],
     "source": "Blackboard Ultra"
@@ -331,6 +331,11 @@ window.DATA = {
     }
   ],
   "announcements": [
+    {
+      "title": "Pandas topics assignments",
+      "course": "البرمجة المتقدمة وإطارات برمجة 605",
+      "date": "1 نوفمبر 2026 — 10:52 ص"
+    },
     {
       "title": "Important Announcement Regarding the Midterm Exam",
       "course": "البرمجة المتقدمة وإطارات برمجة 605",
@@ -357,19 +362,14 @@ window.DATA = {
       "date": "8 سبتمبر 2026 — 8:43 ص"
     },
     {
+      "title": "Research Submissions, Deadlines, and Class Requirements (Weeks 11–15)",
+      "course": "طرق بحث 608",
+      "date": "1 نوفمبر 2026 — 1:33 م"
+    },
+    {
       "title": "Today's Lecture Postponed to Next Week",
       "course": "طرق بحث 608",
       "date": "28 أكتوبر 2026 — 8:12 ص"
-    },
-    {
-      "title": "Lectures from this week to the end of the semester",
-      "course": "طرق بحث 608",
-      "date": "24 أكتوبر 2026 — 6:22 ص"
-    },
-    {
-      "title": "No class this week because of the MidExams",
-      "course": "طرق بحث 608",
-      "date": "19 أكتوبر 2026 — 3:22 م"
     }
   ],
   "studyPlan": [
