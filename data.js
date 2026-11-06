@@ -1,9 +1,9 @@
 window.DATA = {
-  "updated": "6 نوفمبر 2026 — 11:39 ص",
-  "updatedISO": "2026-11-06T08:39:37Z",
+  "updated": "6 نوفمبر 2026 — 11:42 ص",
+  "updatedISO": "2026-11-06T08:42:21Z",
   "sync": {
     "status": "ok",
-    "timestamp": "2026-11-06T08:39:37Z",
+    "timestamp": "2026-11-06T08:42:21Z",
     "message": "مزامنة تلقائية من Blackboard Ultra (كل ٧٢ ساعة)"
   },
   "courses": [
@@ -145,39 +145,39 @@ window.DATA = {
   "grades": {
     "status": "OK",
     "message": "اكتمل التحقق من تقديرات جميع المقررات.",
-    "lastAttemptAt": "2026-11-06T11:39:37+03:00",
-    "lastSuccessAt": "2026-11-06T11:39:37+03:00",
+    "lastAttemptAt": "2026-11-06T11:42:21+03:00",
+    "lastSuccessAt": "2026-11-06T11:42:21+03:00",
     "courses": {
       "_203638_1": {
         "name": "أساسيات الذكاء الاصطناعي 601",
         "code": "481_CSC601_28227_1_231_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-06T11:39:37+03:00",
-        "lastSuccessAt": "2026-11-06T11:39:37+03:00",
+        "lastAttemptAt": "2026-11-06T11:42:21+03:00",
+        "lastSuccessAt": "2026-11-06T11:42:21+03:00",
         "count": 3
       },
       "_203644_1": {
         "name": "البرمجة المتقدمة وإطارات برمجة 605",
         "code": "481_CSC605_28262_1_228_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-06T11:39:37+03:00",
-        "lastSuccessAt": "2026-11-06T11:39:37+03:00",
+        "lastAttemptAt": "2026-11-06T11:42:21+03:00",
+        "lastSuccessAt": "2026-11-06T11:42:21+03:00",
         "count": 5
       },
       "_203640_1": {
         "name": "الرياضيات الحاسوبية 602",
         "code": "481_CSC602_28261_1_227_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-06T11:39:37+03:00",
-        "lastSuccessAt": "2026-11-06T11:39:37+03:00",
+        "lastAttemptAt": "2026-11-06T11:42:21+03:00",
+        "lastSuccessAt": "2026-11-06T11:42:21+03:00",
         "count": 2
       },
       "_203650_1": {
         "name": "طرق بحث 608",
         "code": "481_CSC608_28263_1_229_18",
         "status": "OK",
-        "lastAttemptAt": "2026-11-06T11:39:37+03:00",
-        "lastSuccessAt": "2026-11-06T11:39:37+03:00",
+        "lastAttemptAt": "2026-11-06T11:42:21+03:00",
+        "lastSuccessAt": "2026-11-06T11:42:21+03:00",
         "count": 5
       }
     },
@@ -195,7 +195,7 @@ window.DATA = {
         "score": 19.0,
         "maximum": 20.0,
         "pct": 95.0,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "e6bd31b0245138689855bc10",
@@ -209,7 +209,7 @@ window.DATA = {
         "score": 20.0,
         "maximum": 20.0,
         "pct": 100.0,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "1741aa3f963b4d96333eecd9",
@@ -223,7 +223,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "9e5d8aec3670f6b7e9c8b08b",
@@ -237,7 +237,7 @@ window.DATA = {
         "score": 2.9,
         "maximum": 3.0,
         "pct": 96.7,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "4b767dee0084240315ee4dea",
@@ -251,7 +251,7 @@ window.DATA = {
         "score": 0.0,
         "maximum": 5.0,
         "pct": 0.0,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "a20dcda78a48089520edb751",
@@ -265,7 +265,7 @@ window.DATA = {
         "score": 7.0,
         "maximum": 20.0,
         "pct": 35.0,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "2a890f3e7b86b89fba28693b",
@@ -279,7 +279,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "6b8eccf754bbe6851aa87706",
@@ -293,7 +293,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "8da2e51222b6f12b64dd54bb",
@@ -307,7 +307,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "d29c6ecc91b04adcbce47bff",
@@ -321,7 +321,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "4ebed79d82292df4f60a7738",
@@ -335,7 +335,7 @@ window.DATA = {
         "score": 14.0,
         "maximum": 15.0,
         "pct": 93.3,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "1fe79c15a789ba4f39754a39",
@@ -349,7 +349,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "554b58bbfc83de234e2a6454",
@@ -363,7 +363,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "4f79e084aa125c2016f81549",
@@ -377,7 +377,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       },
       {
         "id": "3ef2bd8fa9cea3a4c06504db",
@@ -391,7 +391,7 @@ window.DATA = {
         "score": null,
         "maximum": null,
         "pct": null,
-        "checkedAt": "2026-11-06T11:39:37+03:00"
+        "checkedAt": "2026-11-06T11:42:21+03:00"
       }
     ],
     "source": "Blackboard Ultra"
